@@ -1,0 +1,12 @@
+[0313/172819.365:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0701/152859.545:ERROR:process_reader_win.cc(182)] ResumeThread: The parameter is incorrect. (0x57)
+[0701/152859.547:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
+[0701/152859.547:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
+[0701/152859.547:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
+[0701/152859.547:ERROR:process_reader_win.cc(123)] NtOpenThread: An invalid Client ID was specified. (0xc000000b)
+[0701/152859.558:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
+[0701/152859.558:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
+[0701/152859.558:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
+[0701/152859.558:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
+[0701/152859.558:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
+[0701/152859.558:ERROR:exception_snapshot_win.cc(98)] thread ID 7720 not found in process
