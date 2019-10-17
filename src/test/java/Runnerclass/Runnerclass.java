@@ -14,10 +14,11 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = 
-{"src\\test\\resources\\Property\\Customer.feature"},glue="stepDefinition", monochrome = true,tags= {"@smoketest"},
+{"src\\test\\resources\\Property\\Customer.feature"},monochrome = true,tags= {"@smoketest"},
 plugin={"com.cucumber.listener.ExtentCucumberFormatter:target/html/ExtentReport.html"})
 
-//tags= {"@smoketest"},
+//tags= {"@smoketest"},glue="stepDefinition", 
+
 public class Runnerclass
 
 {

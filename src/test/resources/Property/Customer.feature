@@ -7,7 +7,7 @@ Feature: Customer module under test
    Given open application with "chrome"
    When click on the new customer 
    When select account type as business
-   And enter emailid and other details "ra1132@i95dev.com" and "userb11141" and "P@ssw0rd" and "P@ssw0rd" and "swift" and "swift"     
+   And enter emailid and other details "ra11321@i95dev.com" and "userb11142" and "P@ssw0rd" and "P@ssw0rd" and "swift" and "swift"     
    And enter companyname "Jiva" 
    Then select prefix and enter customer details "Raj" and "tari" and "address1" and "Newyork" and "11011" and "123-456-7890"
 	 Then close browser
@@ -17,14 +17,14 @@ Feature: Customer module under test
 	 Given open application with "chrome"
 	 When click on the new customer
 	 When select account type as person
-   And enter emailid and other details "ra114@i95dev.com" and "userb1123" and "P@ssw0rd" and "P@ssw0rd" and "swift" and "swift"  
+   And enter emailid and other details "ra1141@i95dev.com" and "userb1124" and "P@ssw0rd" and "P@ssw0rd" and "swift" and "swift"  
    Then select prefix and enter customer details "seenu" and "vemula" and "address1" and "Newyork" and "11011" and "123-456-7890"
 	 Then close browser
    		
 	 @test3
 	 Scenario: Buy credit creation for the existing customer
 	 Given open application with "chrome" 
-   Then enter username and password "testac41" and "Test1234"
+   Then enter username and password "testac71" and "Test1234"
    Then click on myaccount link
    Then enter buy credit amount "1000"
    Then enter card details "4111111111111111" and "123"
