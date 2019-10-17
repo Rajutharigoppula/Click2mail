@@ -1,12 +1,17 @@
 package stepDefinition;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -15,12 +20,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.cucumber.listener.Reporter;
+
 import Webpages.Dashboard;
 import Webpages.Homepage;
 import Webpages.Loginpage;
 import Webpages.Orderpages;
 import Webpages.Productpage;
 import cucumber.api.Scenario;
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -30,6 +38,7 @@ import cucumber.api.java.en.When;
 public class Gluecode 
 {
 
+	private static final int Screenshot1 = 0;
 	public WebDriver driver;
 	public Loginpage lg;
 	public Productpage Pd;
@@ -131,7 +140,9 @@ public class Gluecode
 		lg.postcode.sendKeys(post);
 		lg.ustelephone(phnumber);
 		lg.register(); Thread.sleep(5000);
-
+		String successmsg = lg.Thankyou.getText();
+		System.out.println(successmsg);
+		
 		}
 		
 	@When("^select account type as business$")
@@ -150,18 +161,23 @@ public class Gluecode
 	@Then("close browser$")
 	public void method23() throws InterruptedException
 		{
-		driver.quit();
+			driver.quit();
 		}
+	
+	
+	
 	
 // login from homepage
 	
 	@Then("^enter username and password \"(.*)\" and \"(.*)\"$")
 	public void method25(String uname,String pname ) throws InterruptedException
 	{
-		hp.UsernameH.clear();Thread.sleep(3000);
-		hp.UsernameH(uname);Thread.sleep(2000);
+		hp.UsernameH.click();
+		hp.UsernameH.clear();
+		hp.UsernameH(uname);
+		hp.PasswordH.click();
 		hp.PasswordH.clear();
-		hp.PasswordH(pname);Thread.sleep(2000);
+		hp.PasswordH(pname);
 		hp.SigninH();
 		
 	}
@@ -572,6 +588,8 @@ public class Gluecode
 		Thread.sleep(2000);
 		Db.Buy();
 		wait.until(ExpectedConditions.visibilityOf(Db.ok));
+		String Txt = Db.creditbalance.getText();
+		System.out.println(Txt);
 		Db.ok();
 	}
 	
@@ -773,12 +791,11 @@ public class Gluecode
 	public void method77() throws InterruptedException
 	{
 		Db.Myaccount();
-		wait.until(ExpectedConditions.invisibilityOf(Db.accept));
-		
-		if(Db.accept.isDisplayed())
+		Thread.sleep(3000);		
+		/*if(Db.accept.isDisplayed())
 		{
 			Db.accept.click();
-		}
+		}*/
 	}
 	
 		
@@ -907,10 +924,12 @@ public class Gluecode
 		lg.close1();Thread.sleep(4000);
 		lg.done();Thread.sleep(4000);
 		wait.until(ExpectedConditions.invisibilityOf(lg.Mailinglist));
-				
-		
-	}
 	
+		}
+	
+
+	
+
 	
 	
 }

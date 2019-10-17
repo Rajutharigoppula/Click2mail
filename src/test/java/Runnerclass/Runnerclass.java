@@ -14,10 +14,10 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = 
-{"src\\test\\resources\\Property\\Customer.feature"},monochrome = true,tags= {"@smoketest"},
+{"src\\test\\resources\\Property\\Customer.feature"},glue="stepDefinition", monochrome = true,tags= {"@smoketest"},
 plugin={"com.cucumber.listener.ExtentCucumberFormatter:target/html/ExtentReport.html"})
 
-//tags= {"@smoketest"},glue="stepDefinition", 
+//tags= {"@smoketest"},
 
 public class Runnerclass
 
@@ -27,12 +27,14 @@ public class Runnerclass
 	{
 	Reporter.loadXMLConfig(new File("src/test/resources/extent-config.xml"));
 	Reporter.setSystemInfo("Test User", System.getProperty("user.name"));
-	Reporter.setSystemInfo("User Name", "Raju");
+	Reporter.setSystemInfo("User Name", "Raju Tarigoppula");
 	Reporter.setSystemInfo("Application Name", "Click2mail");
 	Reporter.setSystemInfo("Operating System Type", System.getProperty("os.name").toString());
-	Reporter.setSystemInfo("Environment", "Production");
+	Reporter.setSystemInfo("Environment", "Testing");
 	Reporter.setTestRunnerOutput("Test Execution Cucumber Report");
 
+	
+	
 	}
 
 } 

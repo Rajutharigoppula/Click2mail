@@ -63,7 +63,10 @@ public class Loginpage
 	@FindBy(xpath="//*[@class='recaptcha-checkbox-checkmark']")
 	public WebElement captcha;
 	
+	@FindBy(xpath="//*[contains(text(), 'Thank you for registering')]")
+	public WebElement Thankyou;
 		
+	
 	//Customer Account Details
 
 	@FindBy(xpath="//ul[@class='inner myaccount']//li[2]")

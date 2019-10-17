@@ -43,18 +43,23 @@ public class Dashboard
 	@FindBy(xpath="//select[@id='uc_state']")
 	public WebElement  state;
 	//New York
+	//buy credit
+	
 	@FindBy(xpath="//button[@id='buycredit']")
 	public WebElement  Buy;
 	
 	@FindBy(xpath="//div[@class='ui-dialog-buttonset']//button[@type='button']")
 	public WebElement  ok;
 	
+	@FindBy(xpath="//div[@class='ui-dialog ui-widget ui-widget-content ui-corner-all ui-front confirm_dialog_class ui-dialog-buttons ui-draggable']//p[1]")
+	public WebElement  creditbalance;
+	
 	//addresses
 	
 	@FindBy(xpath="//*[text()='Addresses']")
 	public WebElement  addresses;
 	
-	@FindBy(xpath="(//*[text()='Add New Address']/parent::*)[1")
+	@FindBy(xpath="(//*[text()='Add New Address']/parent::*)[1]")
 	public WebElement  addnewaddress;
 	
 	

@@ -2,7 +2,7 @@
 @Test
 Feature: Customer module under test
 
-   @smoketest @test1(14722) 
+   @Test1(14722) 
    Scenario: Business type customer creation
    Given open application with "chrome"
    When click on the new customer 
@@ -12,16 +12,16 @@ Feature: Customer module under test
    Then select prefix and enter customer details "Raj" and "tari" and "address1" and "Newyork" and "11011" and "123-456-7890"
 	 Then close browser
 	
-	 @test2
+	 @Test2
 	 Scenario: Person type customer creation
 	 Given open application with "chrome"
 	 When click on the new customer
 	 When select account type as person
-   And enter emailid and other details "ra1141@i95dev.com" and "userb1124" and "P@ssw0rd" and "P@ssw0rd" and "swift" and "swift"  
+   And enter emailid and other details "ra11411@i95dev.com" and "userb11241" and "P@ssw0rd" and "P@ssw0rd" and "swift" and "swift"  
    Then select prefix and enter customer details "seenu" and "vemula" and "address1" and "Newyork" and "11011" and "123-456-7890"
-	 Then close browser
-   		
-	 @test3
+   Then close browser
+   
+  @Test3
 	 Scenario: Buy credit creation for the existing customer
 	 Given open application with "chrome" 
    Then enter username and password "testac71" and "Test1234"
@@ -30,14 +30,14 @@ Feature: Customer module under test
    Then enter card details "4111111111111111" and "123"
    Then close browser
     
-   @test4(14723)
+  @smoketest  @Test4(14723)
    Scenario: Customer addresses creation
    Given open application with "chrome" 
    Then enter username and password "testac41" and "Test1234"
    Then click on myaccount link
    Then click on addresses link
    Then enter address type "Return" 
-   Then create return address "retru1" and "add1" and "add2" and "newyork" and "11011"
+   Then create return address "retru16" and "add1" and "add2" and "newyork" and "11011"
    And click on add new address link
    Then enter address type "billing" 
    Then create billing address "billin1" and "add1" and "add2" and "newyork" and "11011" and "123-254-2541"
@@ -53,9 +53,8 @@ Feature: Customer module under test
    And click on add new address link
    Then enter address type "courtesy"
    Then create courtesy address "courtesy1" and "add1" and "add2" and "newyork" and "11011"
-   Then close browser
    
-   @test5
+   @Test5
    Scenario: Customer addresses updation
    Given open application with "chrome" 
    Then enter username and password "testac41" and "Test1234"
@@ -63,26 +62,26 @@ Feature: Customer module under test
    Then click on addresses link
    Then enter address type "Return" 
               
-   @test6      
+   @Test6      
    Scenario: Customer addresses deletion
    Given open application with "chrome" 
    Then enter username and password "testac41" and "Test1234"
    Then click on myaccount link 
    And delete retrun address additional address
     
-   @test7
+   @Test7
    Scenario: From the home page or login page select forgot username
    Given open application with "chrome" 
    Then click on forgot username "test@test.com"
    Then close browser
    
-   @test8
+   @Test8
    Scenario: From the home page or login page select forgot username
    Given open application with "chrome" 
    Then click on forgot password "testac15" 
    Then close browser
        
- 	 @test9
+ 	 @Test9
    Scenario: job templates creation
    Given open application with "chrome"
    Then enter username and password "testac41" and "Test1234" 
@@ -90,7 +89,7 @@ Feature: Customer module under test
    Then create molpro template "sampletemp"
    Then close browser
       
-   @test10 
+   @Test10 
    Scenario Outline: multiple job templates creation
    Given open application with "chrome"
    Then enter username and password "testac41" and "Test1234" 
@@ -103,9 +102,8 @@ Feature: Customer module under test
       | pname1    |     
       | pname2    |    
       | pname3    |
-      | pname4    |
              
-   @test11
+   @Test11
    Scenario: return address deletion from additional address
    Given open application with "chrome" 
    Then enter username and password "testac41" and "Test1234" 
@@ -113,7 +111,7 @@ Feature: Customer module under test
    And delete retrun address additional address
    Then close browser
        
-   @test12
+   @Test12
    Scenario: return address deletion from additional address
    Given open application with "chrome" 
    Then enter username and password "testac41" and "Test1234"
@@ -121,7 +119,7 @@ Feature: Customer module under test
    Then update account details "Raj" and "tari" and "raj@i95dev.com" and "123-244-5874" and "anup" and "kumar" and "wipro" and "new address" and "New York" and "11011" 
    Then close browser
    
-   @test13
+   @Test13
    Scenario: New project creation -under My assets -my projects.
    Given open application with "chrome" 
    Then enter username and password "testac41" and "Test1234" 
@@ -129,7 +127,7 @@ Feature: Customer module under test
    Then create a new project "Pnamexx" 
    Then close browser
     
-   @test14
+   @Test14
    Scenario: Project deletion -under My assets -my projects.
    Given open application with "chrome" 
    Then enter username and password "testac41" and "Test1234" 
@@ -138,7 +136,7 @@ Feature: Customer module under test
    Then close browser
    
     
-	 @smoketest @test15
+	@Test15
    Scenario: New mailinglist creation -under My assets -my mailinglist.
    Given open application with "chrome" 
    Then enter username and password "testac41" and "Test1234" 
