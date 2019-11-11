@@ -136,7 +136,7 @@ public class Gluecode
 		lg.address(addresss1);
 		lg.city(cty);
 		Select region = new Select(lg.region);
-		region.selectByVisibleText("New York");Thread.sleep(2000);
+		region.selectByVisibleText("New Jersey");Thread.sleep(2000);
 		lg.postcode.sendKeys(post);
 		lg.ustelephone(phnumber);
 		lg.register(); Thread.sleep(5000);
@@ -329,25 +329,19 @@ public class Gluecode
 	
 	@And("^enter initials for shiped product \"(.*)\"$")
 	public void method34 (String ab) throws InterruptedException
-	{
+	{ 
 	op.Initials(ab);
 	Thread.sleep(5000);
 	op.addtocart();
 	wait.until(ExpectedConditions.visibilityOf(op.finish));
 	op.finish();
 	wait.until(ExpectedConditions.visibilityOf(op.proceedtocheckout));
-	op.proceedtocheckout();
-	Thread.sleep(7000);
-	op.shipaddress();
-	Thread.sleep(7000);
-	op.shipmethod();
-	Thread.sleep(7000);
-	op.CreditCard();
-	Thread.sleep(7000);
-	op.accept();
-	Thread.sleep(5000);
-	op.placeorder();
-	Thread.sleep(5000);
+	op.proceedtocheckout();Thread.sleep(7000);	
+	op.shipaddress();Thread.sleep(7000);  
+	op.shipmethod();Thread.sleep(7000);
+	op.CreditCard();Thread.sleep(7000); 
+	op.accept();	Thread.sleep(5000);
+	op.placeorder(); Thread.sleep(5000);
 	wait.until(ExpectedConditions.visibilityOf(op.success));
 		
 	}
@@ -365,7 +359,7 @@ public class Gluecode
 	public void method35() throws InterruptedException	
 	{
 	
-	op.Startbutton();Thread.sleep(5000);
+	op.Startbutton();Thread.sleep(5000); 
 	op.startjob1();Thread.sleep(5000);
 	op.upload();Thread.sleep(5000);
 	driver.switchTo().frame("iframe");
@@ -383,8 +377,7 @@ public class Gluecode
 	driver.switchTo().window(tabs_windows.get(0));
 	op.yes();Thread.sleep(5000);
 	}
-	
-	
+		
 		
 	@And("^enter initials for print mail \"(.*)\"$")
 	public void method47 (String ab) throws InterruptedException
