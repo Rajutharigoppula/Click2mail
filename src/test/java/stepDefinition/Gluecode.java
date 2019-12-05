@@ -1,17 +1,18 @@
 package stepDefinition;
 
-import java.io.File;
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -20,15 +21,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.cucumber.listener.Reporter;
-
 import Webpages.Dashboard;
 import Webpages.Homepage;
 import Webpages.Loginpage;
 import Webpages.Orderpages;
 import Webpages.Productpage;
 import cucumber.api.Scenario;
-import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -38,7 +36,6 @@ import cucumber.api.java.en.When;
 public class Gluecode 
 {
 
-	private static final int Screenshot1 = 0;
 	public WebDriver driver;
 	public Loginpage lg;
 	public Productpage Pd;
@@ -335,11 +332,17 @@ public class Gluecode
 	op.addtocart();
 	wait.until(ExpectedConditions.visibilityOf(op.finish));
 	op.finish();
-	wait.until(ExpectedConditions.visibilityOf(op.proceedtocheckout));
+	Thread.sleep(4000);
+	wait.until(ExpectedConditions.visibilityOf(op.addedtocart));
 	op.proceedtocheckout();Thread.sleep(7000);	
-	op.shipaddress();Thread.sleep(7000);  
-	op.shipmethod();Thread.sleep(7000);
-	op.CreditCard();Thread.sleep(7000); 
+	wait.until(ExpectedConditions.visibilityOf(op.flatrate));
+	Thread.sleep(4000);
+	op.flatrate();Thread.sleep(5000);
+	
+    JavascriptExecutor js = (JavascriptExecutor) driver;
+    js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+
+	op.usercredit();Thread.sleep(5000); 
 	op.accept();	Thread.sleep(5000);
 	op.placeorder(); Thread.sleep(5000);
 	wait.until(ExpectedConditions.visibilityOf(op.success));
@@ -891,38 +894,106 @@ public class Gluecode
 		lg.MyProjects();Thread.sleep(3000);
 		lg.searchbox(x);Thread.sleep(3000);
 		lg.searchbtn();Thread.sleep(3000);
+		wait.until(ExpectedConditions.visibilityOf(lg.searchbtntop));Thread.sleep(3000);
 		Select act = new Select(lg.action);
 		act.selectByVisibleText("Delete Project");Thread.sleep(3000);
 		lg.delete();
 		wait.until(ExpectedConditions.visibilityOf(lg.status));Thread.sleep(3000);
 	}
 	
-	@When("^create mailing list \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\"$")
+	@When("^create mailing list and one address \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\"$")
 	public void method87(String a,String b,String c,String d,String e) throws InterruptedException
 	{
 		lg.mailing();Thread.sleep(4000);
 		lg.newlist();
 		wait.until(ExpectedConditions.visibilityOf(lg.malingname));
-		lg.malingname(a);
-		lg.savemailing();Thread.sleep(4000);
-		wait.until(ExpectedConditions.visibilityOf(lg.addreceipient));
+		lg.malingname(a);Thread.sleep(2000);
+		lg.savemailing();Thread.sleep(7000);
 		lg.addreceipient();Thread.sleep(4000);
 		lg.Firstname(b);
 		lg.Lastname(c);
 		lg.Address1(d);
 		lg.City(e);
+		Thread.sleep(2000);
 		Select sta = new Select (lg.State1);
 		sta.selectByVisibleText("New York");Thread.sleep(4000);
-		lg.Standardize();Thread.sleep(4000);
+		lg.Standardize();Thread.sleep(7000);
 		lg.close1();Thread.sleep(4000);
-		lg.done();Thread.sleep(4000);
-		wait.until(ExpectedConditions.invisibilityOf(lg.Mailinglist));
+		lg.done();Thread.sleep(7000);
+		//wait.until(ExpectedConditions.invisibilityOf(lg.Mailinglist));
 	
 		}
-	
 
+	@When("^create mailing list \"(.*)\"$")
+	public void method87(String a) throws InterruptedException
+	{
+		lg.mailing();Thread.sleep(4000);
+		lg.newlist();
+		wait.until(ExpectedConditions.visibilityOf(lg.malingname));
+		lg.malingname(a);Thread.sleep(2000);
+		lg.savemailing();Thread.sleep(5000);
+		lg.closeml();Thread.sleep(2000);
+		
+	}
 	
+	@And("^Create a document \"(.*)\" and \"(.*)\"$")
+	public void method88 (String a, String test) throws InterruptedException
+	{
+		Db.mydocuments();Thread.sleep(5000);
+		Db.createdocument();Thread.sleep(2000);
+		Db.createdocname(a);Thread.sleep(2000);
+		
+		Select product = new Select(Db.producttype);Thread.sleep(2000);
+		product.selectByVisibleText("Postcard 3.5 x 5"); Thread.sleep(2000);
 
+		Db.editorchoice(); Thread.sleep(5000);
+		Db.doccontinue(); Thread.sleep(5000);
+		wait.until(ExpectedConditions.visibilityOf(Db.editor));
+		Thread.sleep(3000);
+		Db.no(); Thread.sleep(4000);
+		driver.switchTo().frame("editor-main-window-iframe");
+		Db.abtext();  Thread.sleep(3000);
+		
+		Actions ToolTip1 = new Actions(driver);
+		ToolTip1.moveToElement(Db.canvas).moveByOffset(-50,-20).click()
+		.doubleClick()
+		.sendKeys(test)
+		.build()
+		.perform();
+		
+		Thread.sleep(5000);
+		Db.saveandclose();
+		
+	}
+	
+	@And("^upload mailing list$")
+	public void method87() throws InterruptedException, AWTException
+	{
+		lg.mailing();Thread.sleep(4000);
+		lg.uploadlist();Thread.sleep(6000);
+		lg.implist(); Thread.sleep(4000);
+
+		
+	/*	StringSelection ss = new StringSelection("D:\\us-50 address");
+	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+
+	    //imitate mouse events like ENTER, CTRL+C, CTRL+V
+	    Robot robot = new Robot();
+	    robot.keyPress(KeyEvent.VK_ENTER);
+	    robot.keyRelease(KeyEvent.VK_ENTER);
+	    robot.keyPress(KeyEvent.VK_CONTROL);
+	    robot.keyPress(KeyEvent.VK_V);
+	    robot.keyRelease(KeyEvent.VK_V);
+	    robot.keyRelease(KeyEvent.VK_CONTROL);
+	    robot.keyPress(KeyEvent.VK_ENTER);
+	    robot.keyRelease(KeyEvent.VK_ENTER);
+*/
+//		lg.uploadbtn();
+	}
+	
+	
+	
+	
 	
 	
 }

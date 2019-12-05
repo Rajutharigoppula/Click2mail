@@ -139,6 +139,7 @@ public class Loginpage
 	@FindBy(xpath="//button[@id='search_btn']")
 	public WebElement  searchbtn;
 	
+	
 	@FindBy(xpath="//select[@id='projectaction']")
 	public WebElement  action;
 	//Delete Project
@@ -148,6 +149,9 @@ public class Loginpage
 	
 	@FindBy(xpath="//td[@class='ui-header']")
 	public WebElement  status;
+	
+	@FindBy(xpath="//*[@id='search_btn_top']")
+	public WebElement  searchbtntop;
 	
 	// for my mailing list
 	
@@ -163,7 +167,11 @@ public class Loginpage
 	@FindBy(xpath="//a[@id='create_address_book']")
 	public WebElement  savemailing;
 	
-	@FindBy(xpath="//span[contains(text(),'Add Recipient')]")
+	@FindBy(id="ml_create_mailing_btn_close")
+	public WebElement  closeml;
+	
+	
+	@FindBy(xpath="//*[@id='ml_create_mailing_add_recp']")
 	public WebElement  addreceipient;
 	
 	@FindBy(xpath="//input[@id='rtn_firstName']")
@@ -191,7 +199,16 @@ public class Loginpage
 	public WebElement  done;
 	
 	@FindBy(xpath="//b[contains(text(),'Total Mailing lists:')]")
-	public WebElement  Mailinglist;
+	public WebElement Mailinglist;
+	
+	@FindBy(id="upload_list")
+	public WebElement uploadlist;
+	
+	@FindBy(xpath="//input[@id='importlistfile']")
+	public WebElement implist;
+	
+	@FindBy(id="uml_upload_btn_upload")
+	public WebElement uploadbtn;
 	
 	// operations
 	
@@ -441,6 +458,24 @@ public class Loginpage
 		{
 		done.click();
 		}
+		public void closeml()
+		{
+			closeml.click();
+		}
+		public void uploadlist()
+		{
+			uploadlist.click();
+		}
+		public void implist()
+		{
+			implist.click();
+		}
+		public void uploadbtn()
+		{
+			uploadbtn.click();
+		}
+		
+		
 		
 	}
 	

@@ -68,15 +68,23 @@ public class Orderpages
 		@FindBy(xpath="//a[contains(text(),'Finish checkout')]")
 		public WebElement finish;
 		
-		@FindBy(xpath="(//*[@href='https://dev.click2mail.com/onestepcheckout/'])[1]")
+		@FindBy(xpath="//*[text()='Successfully added item(s) to the cart.']")
+		public WebElement addedtocart;
+		
+		
+		@FindBy(xpath="(//*[@title='Proceed to Checkout'])[1]")
 		public WebElement proceedtocheckout;
+		
+		@FindBy(xpath="//*[@id='usercredits']")
+		public WebElement  usercredit; 
 		
 		@FindBy(xpath="//input[@id='p_method_authnetcim']")
 		public WebElement  CreditCard; 
 		
-		@FindBy(xpath="//input[@id='agreement-1']")
+		
+		@FindBy(xpath="(//*[@id='agreement__1'])[1]")
 		public WebElement  accept; 
-		@FindBy(xpath="//*[@title='Place order now']")
+		@FindBy(xpath="(//*[@title='Place Order'])[3]")
 		public WebElement  placeorder; 
 		
 		@FindBy(xpath="//*[@name='billing[use_for_shipping]']")
@@ -84,6 +92,10 @@ public class Orderpages
 		
 		@FindBy(xpath="//input[@id='s_method_fedex_FEDEX_GROUND']")
 		public WebElement  shipmethod; 
+		
+		@FindBy(xpath="//*[@name='ko_unique_1']")
+		public WebElement  flatrate; 
+		
 		@FindBy(xpath="//*[text()='Your order has been received.']")
 		public WebElement  success;
 		
@@ -213,6 +225,19 @@ public class Orderpages
 		{
 			shipmethod.click();
 		}
+		
+		public void usercredit() 
+		
+		{
+			usercredit.click();
+		}
+		
+		public void flatrate() 
+		
+		{
+			flatrate.click();
+		}
+		
 		
 		public void success()
 		{

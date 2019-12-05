@@ -7,7 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Dashboard 
 {
-
 	
 	public WebDriver driver;
 	
@@ -219,7 +218,54 @@ public class Dashboard
 			@FindBy(xpath="")
 			public WebElement x;
 			
-			// 
+			// My Documents
+
+			@FindBy(xpath="//*[@title='My Documents']")
+			public WebElement mydocuments;
+			
+			@FindBy(xpath="//*[@id='create_document_btn']")
+			public WebElement createdocument;
+			
+			@FindBy(name="createdocname")
+			public WebElement createdocname;
+			
+			@FindBy(xpath="(//*[@name='product_sku'])[2]")
+			public WebElement producttype;
+			
+			//Postcard 3.5 x 5
+			
+			@FindBy(name="editorchoice")
+			public WebElement editorchoice;
+			
+			@FindBy(id="continue_create_doc_editor_mydoc")
+			public WebElement doccontinue;
+			
+			@FindBy(xpath="//*[text()='No']/parent::*")
+			public WebElement no;
+			
+			@FindBy(id="tool_text")
+			public WebElement abtext;
+			
+			@FindBy(xpath="(//*[@class='upper-canvas '])[3]")
+			public WebElement canvas;
+			
+			@FindBy(xpath="//*[@id='editor-mailmerge-confirm']")
+			public WebElement editor;
+			
+			@FindBy(id="editor-main-window-iframe")
+			public WebElement iframe;
+						
+			@FindBy(xpath="(//*[@id='dialog_buttons']/input[1])[1]")
+			public WebElement messageok;
+			
+			
+			
+			@FindBy(id="save_close_btn")
+			public WebElement saveandclose;
+			
+			
+			
+			
 			
 			
 	// operations
@@ -458,12 +504,47 @@ public class Dashboard
 	}
 	public void del()
 	{
-		del.click();
-		
+	del.click();
 	}
 	
+	public void mydocuments()
+	{
+		mydocuments.click();
+	}
+	public void createdocument()
+	{
+		createdocument.click();
+	}
+	public void createdocname(String a)
+	{
+		createdocname.sendKeys(a);
+	}
+	public void editorchoice()
+	{
+		editorchoice.click();
+	}
+	public void doccontinue()
+	{
+		doccontinue.click();
+	}
+	public void no()
+	{
+		no.click();
+	}
+	public void abtext()
+	{
+		abtext.click();
+	}
 	
+	public void canvas()
+	{
+		canvas.click();
+	}
 	
+	public void saveandclose()
+	{
+		saveandclose.click();
+	}
 	
 }
 
