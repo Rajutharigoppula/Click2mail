@@ -18,7 +18,7 @@ import cucumber.api.junit.Cucumber;
 		monochrome = true,tags= {"@smoketest"},
 plugin={"com.cucumber.listener.ExtentCucumberFormatter:target/html/ExtentReport.html"})
 
-//tags= {"@smoketest"},
+//tags= {"@smoketest"}
 
 public class Runnerclass
 
