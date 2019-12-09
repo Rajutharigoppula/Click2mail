@@ -14,7 +14,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = 
-{"src\\test\\resources\\Property\\MyDocuments.feature"},glue="stepDefinition",
+{"src\\test\\resources\\Property\\MyMailingLists.feature"},glue="stepDefinition",
 		monochrome = true,tags= {"@smoketest"},
 plugin={"com.cucumber.listener.ExtentCucumberFormatter:target/html/ExtentReport.html"})
 

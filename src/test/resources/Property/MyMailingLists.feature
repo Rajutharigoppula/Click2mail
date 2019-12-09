@@ -26,3 +26,10 @@ Feature: My mailing list testing
    Then enter username and password "test0312" and "Test1234" 
    Then click on myaccount link
    And upload mailing list
+   
+   @Test3
+   Scenario: upload mailing list
+   Given open application with "chrome" 
+   Then enter username and password "test0312" and "Test1234" 
+   Then click on myaccount link
+   And create a job from my mailinglist

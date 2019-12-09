@@ -210,6 +210,9 @@ public class Loginpage
 	@FindBy(id="uml_upload_btn_upload")
 	public WebElement uploadbtn;
 	
+	
+	
+	
 	// operations
 	
 	

@@ -1,10 +1,6 @@
 package stepDefinition;
 
 import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,6 +20,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import Webpages.Dashboard;
 import Webpages.Homepage;
 import Webpages.Loginpage;
+import Webpages.MyAccount;
 import Webpages.Orderpages;
 import Webpages.Productpage;
 import cucumber.api.Scenario;
@@ -45,7 +42,7 @@ public class Gluecode
 	public Scenario S; 
 	public Properties pro;
 	public WebDriverWait wait;
-	
+	public MyAccount Ma;
 	
                                                                                                                                                                                                    
 	@Before
@@ -84,6 +81,7 @@ public class Gluecode
     Db = new Dashboard(driver);
     hp = new Homepage(driver);
     op = new Orderpages(driver);
+    Ma = new MyAccount (driver);
 	driver.get(pro.getProperty("url"));
 	wait = new WebDriverWait(driver,50);
 	  }
@@ -973,32 +971,26 @@ public class Gluecode
 		lg.uploadlist();Thread.sleep(6000);
 		lg.implist(); Thread.sleep(4000);
 
-		
-	/*	StringSelection ss = new StringSelection("D:\\us-50 address");
-	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+	
 
-	    //imitate mouse events like ENTER, CTRL+C, CTRL+V
-	    Robot robot = new Robot();
-	    robot.keyPress(KeyEvent.VK_ENTER);
-	    robot.keyRelease(KeyEvent.VK_ENTER);
-	    robot.keyPress(KeyEvent.VK_CONTROL);
-	    robot.keyPress(KeyEvent.VK_V);
-	    robot.keyRelease(KeyEvent.VK_V);
-	    robot.keyRelease(KeyEvent.VK_CONTROL);
-	    robot.keyPress(KeyEvent.VK_ENTER);
-	    robot.keyRelease(KeyEvent.VK_ENTER);
-*/
-//		lg.uploadbtn();
 	}
 	
+	@And("^create a job from my mailinglist$")
+	public void method89() throws InterruptedException
+	{
+		lg.mailing();Thread.sleep(4000);
+		
+
 	
+		
+		
+	}
 	
 	
 	
 	
 }
 
-	
 	
 	
 
