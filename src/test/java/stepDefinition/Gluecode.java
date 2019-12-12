@@ -795,7 +795,7 @@ public class Gluecode
 		}
 	}
 	
-	@Then("^click on myaccount link$")
+	@Then("^click on myaccount$")
 	public void method77() throws InterruptedException
 	{
 		Db.Myaccount();

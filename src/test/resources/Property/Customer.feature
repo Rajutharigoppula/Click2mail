@@ -25,7 +25,7 @@ Feature: Customer module under test
    Scenario: Update customer account and address details
    Given open application with "chrome" 
    Then enter username and password "testac41" and "Test1234"
-   Then click on myaccount link
+   Then click on myaccount
    Then update account details "Raju" and "tari" and "test129@i95dev.com" and "123-244-5874" and "anup" and "kumar" and "wipro" and "new address" and "New York" and "11011" 
    Then close browser
    
@@ -45,7 +45,7 @@ Feature: Customer module under test
 	 Scenario: Verify create Buy credit functionality
 	 Given open application with "chrome" 
    Then enter username and password "testac71" and "Test1234"
-   Then click on myaccount link
+   Then click on myaccount
    Then enter buy credit amount "250"
    Then enter card details "4111111111111111" and "123"
    Then close browser
@@ -54,7 +54,7 @@ Feature: Customer module under test
    Scenario: Customer addresses creation
    Given open application with "chrome" 
    Then enter username and password "raju1127" and "Test1234"
-   Then click on myaccount link
+   Then click on myaccount
    Then click on addresses link
    Then enter address type "Return" 
    Then create return address "retru16" and "add1" and "add2" and "newyork" and "11011"
@@ -79,7 +79,7 @@ Feature: Customer module under test
    Scenario: Customer addresses updation
    Given open application with "chrome" 
    Then enter username and password "testac41" and "Test1234"
-   Then click on myaccount link 
+   Then click on myaccount 
    Then click on addresses link
    Then enter address type "Return" 
               
@@ -87,7 +87,7 @@ Feature: Customer module under test
    Scenario: Customer addresses deletion
    Given open application with "chrome" 
    Then enter username and password "testac41" and "Test1234"
-   Then click on myaccount link 
+   Then click on myaccount 
    And delete retrun address additional address
          
  	 
@@ -95,7 +95,7 @@ Feature: Customer module under test
    Scenario: return address deletion from additional address
    Given open application with "chrome" 
    Then enter username and password "testac41" and "Test1234" 
-   Then click on myaccount link
+   Then click on myaccount
    And delete retrun address additional address
    Then close browser
        
@@ -104,7 +104,7 @@ Feature: Customer module under test
    Scenario: Create a job templates 
    Given open application with "chrome"
    Then enter username and password "testac41" and "Test1234" 
-   Then click on myaccount link
+   Then click on myaccount
    Then create molpro template "sampletemp1"
    Then close browser
    

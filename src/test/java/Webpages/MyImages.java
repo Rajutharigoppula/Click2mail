@@ -11,8 +11,7 @@ public class MyImages {
 	
 	@FindBy(xpath="//*[@title='My Images']")
 	public WebElement MyImage;
-	
-	
+		
 	@FindBy(id="upload_image_btn")
 	public WebElement uploadimage;
 	
@@ -22,46 +21,36 @@ public class MyImages {
 	@FindBy(xpath="//div[@id='button_set_one']//b[contains(text(),'Upload')]")
 	public WebElement upload;
 	
-	
-	
-	
-	
-	
-	
+		
 	
 	//operations
 	
-			public MyImages (WebDriver driver)
-			{
-				this.driver=driver;
-				PageFactory.initElements(driver,this);
-			}
+	public MyImages (WebDriver driver)
+	{
+		this.driver=driver;
+		PageFactory.initElements(driver,this);
+	}
 			
-			// forgot username and password
-				
-			
-				
-				public void MyImage()
-				{
-					MyImage.click();
-				}
-				public void uploadimage()
-				{
-					uploadimage.click();
-				}
-				public void ok()
-				{
-					ok.click();
-				}
-				public void upload()
-				{
-					upload.click();
-				}
+	public void MyImage()
+	{
+		MyImage.click();
+	}
+	public void uploadimage()
+	{
+		uploadimage.click();
+	}
+	public void ok()
+	{
+		ok.click();
+	}
+	public void upload()
+	{
+		upload.click();
+	}
 				
 				
 				
-				
-				
+							
 				
 				
 				
