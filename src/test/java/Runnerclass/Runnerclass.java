@@ -14,7 +14,13 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = 
-{"src\\test\\resources\\Property\\MyImages.feature"},glue="stepDefinition",
+{"src\\test\\resources\\Property\\Customer.feature",
+		"src\\test\\resources\\Property\\MyDocuments.feature",
+		"src\\test\\resources\\Property\\MyImages.feature",
+		"src\\test\\resources\\Property\\MyMailingLists.feature",
+		"src\\test\\resources\\Property\\MyProjects.feature",
+		"src\\test\\resources\\Property\\Print.feature",
+		"src\\test\\resources\\Property\\Shipped.feature" },glue="stepDefinition",
 		monochrome = true,tags= {"@smoketest"},
 plugin={"com.cucumber.listener.ExtentCucumberFormatter:target/html/ExtentReport.html"})
 
