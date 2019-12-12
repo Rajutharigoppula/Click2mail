@@ -9,29 +9,34 @@ public class Dashboard
 {
 	
 	public WebDriver driver;
-	
-// LOCATORS		
-	
+
 	@FindBy(xpath="(//*[contains(text(),'My Account')])[1]")
 	public WebElement  Myaccount; 
+	
 	@FindBy(xpath="//a[@id='openBuyCreditLink']")
 	public WebElement  buycredit; 
+	
 	@FindBy(xpath="//input[@name='creditamount']")
 	public WebElement  creditamount;
+	
 	@FindBy(xpath="//select[@id='authnetcim-card-id']")
 	public WebElement  Payment;
+	
 	//Add new card
 	@FindBy(xpath="//select[@id='authnetcim-cc-type']")
 	public WebElement  cardtype;
+
 	//Visa
 	@FindBy(name="payment[cc_number]")
 	public WebElement  cardnumber; 
 	
 	@FindBy(xpath="//select[@id='authnetcim-cc-exp-month']")
-	public WebElement  exp;
+	public WebElement exp;
+	
 	//10 - October
 	@FindBy(xpath="//select[@name='payment[cc_exp_year]']")
 	public WebElement  year;
+	
 	//2022
 	@FindBy(xpath="//input[@id='authnetcim-cc-cid']")
 	public WebElement  cvv;
@@ -41,6 +46,7 @@ public class Dashboard
 	
 	@FindBy(xpath="//select[@id='uc_state']")
 	public WebElement  state;
+	
 	//New York
 	//buy credit
 	
@@ -55,13 +61,18 @@ public class Dashboard
 	
 	//addresses
 	
+	@FindBy(xpath="(//*[text()='Delete Address'])[1]")
+	public WebElement deleteadd;
+	
+	@FindBy(xpath="//*[text()='Delete']")
+	public WebElement del;
+	
 	@FindBy(xpath="//*[text()='Addresses']")
 	public WebElement  addresses;
 	
 	@FindBy(xpath="(//*[text()='Add New Address']/parent::*)[1]")
 	public WebElement  addnewaddress;
-	
-	
+		
 	@FindBy(xpath="//input[@id='description']")
 	public WebElement  nickname ;
 	
@@ -76,6 +87,7 @@ public class Dashboard
 	
 	@FindBy(xpath="//input[@id='city']")
 	public WebElement  city;
+	
 	@FindBy(xpath="//select[@id='region_id']")
 	public WebElement  state1;
 	//New York
@@ -104,14 +116,19 @@ public class Dashboard
 	//address types
 	@FindBy(xpath="//label[@for='return']")
 	public WebElement returnadd;
+	
 	@FindBy(xpath="//input[@id='billing']")
 	public WebElement billingadd;
+	
 	@FindBy(xpath="//input[@id='cartshipping']")
 	public WebElement shippingadd;
+	
 	@FindBy(xpath="//input[@id='eddmmailer']")
 	public WebElement eddmadd;
+	
 	@FindBy(xpath="//input[@id='businessreply']")
 	public WebElement businessadd;
+	
 	@FindBy(xpath="//input[@id='courtesyreply']")
 	public WebElement courtesyadd;
 	
@@ -119,22 +136,28 @@ public class Dashboard
 	public WebElement companyname;
 
 	//manage cc payment
-	
-	
+		
 	@FindBy(xpath="//a[contains(text(),'Manage CC Payment Information')]")
 	public WebElement managecc;
+	
 	@FindBy(xpath="//a[contains(text(),'Manage E-Check Payment Information')]")
 	public WebElement manageecheck;
+	
 	@FindBy(xpath="//input[@id='authnetcim_fn']")
 	public WebElement fn;
+	
 	@FindBy(xpath="//input[@id='authnetcim_ln']")
 	public WebElement ln;
+	
 	@FindBy(xpath="//input[@id='authnetcim_street']")
 	public WebElement street;
+	
 	@FindBy(xpath="//input[@id='authnetcim_city']")
 	public WebElement cityn;
+	
 	@FindBy(xpath="//select[@id='region_id']")
 	public WebElement staten;
+	
 	@FindBy(xpath="//input[@id='authnetcim_postcode']")
 	public WebElement zip;
 	
@@ -157,117 +180,37 @@ public class Dashboard
 	
 	@FindBy(xpath="//input[@id='authnetcim_cc_cid']")
 	public WebElement cvn;
+	
 	@FindBy(xpath="//button[@id='btn-submit']")
 	public WebElement submit;
 	
 	
 	// job templates
 	
-			@FindBy(xpath="//h3[@id='4']")
-			public WebElement  mol;
-			
-			@FindBy(xpath="//button[@id='createtemplate']")
-			public WebElement  createtemp;
+	@FindBy(xpath="//h3[@id='4']")
+	public WebElement  mol;
+	
+	@FindBy(xpath="//button[@id='createtemplate']")
+	public WebElement  createtemp;
+	
+	@FindBy(xpath="//input[@name='template_name']")
+	public WebElement  tempname;
+	
+	@FindBy(xpath="//select[@id='product_sku']")   // 1
+	public WebElement  ptype;   // Postcard 5 x 8
+		
+	@FindBy(xpath="//button[@id='chooseDocument']")
+	public WebElement  choosedoc;
 
-			@FindBy(xpath="//input[@name='template_name']")
-			public WebElement  tempname;
+	@FindBy(xpath="//*[@name='select_popup_document']")
+	public WebElement  selectdoc;
 			
-			@FindBy(xpath="//select[@id='product_sku']")   // 1
-			public WebElement  ptype;   // Postcard 5 x 8
-
-			//@FindBy(xpath="//button[@id='form_mailingListOpener']")
-			//public WebElement  mlist;
-			
-			@FindBy(xpath="//button[@id='chooseDocument']")
-			public WebElement  choosedoc;
-
-			@FindBy(xpath="//*[@name='select_popup_document']")
-			public WebElement  selectdoc;
-			
-			@FindBy(xpath="//button[@id='doc_grid_btn_save_closewindow']")
-			public WebElement  saveclose;
-			
-			@FindBy(xpath="//button[@id='form_savetemplate']")
-			public WebElement  savetemp;
-			
-			
-			// my project creation
-			
-			@FindBy(xpath="//button[@id='myproj_create_new']")
-			public WebElement newproject;
-			
-			@FindBy(xpath="//input[@id='projectname']")
-			public WebElement projectname;
-			
-			@FindBy(xpath="//*[@id='new_project_ok']")
-			public WebElement okbutton;
-			
-						
-			// my project deletion
-			
-			@FindBy(xpath="(//span[contains(text(),'Ok')]/parent::*)[3]")
-			public WebElement accept;
-								
-			@FindBy(xpath="(//*[text()='Delete Address'])[1]")
-			public WebElement deleteadd;
-			
-			@FindBy(xpath="//*[text()='Delete']")
-			public WebElement del;
-			
-
-			@FindBy(xpath="")
-			public WebElement x;
-			
-			// My Documents
-
-			@FindBy(xpath="//*[@title='My Documents']")
-			public WebElement mydocuments;
-			
-			@FindBy(xpath="//*[@id='create_document_btn']")
-			public WebElement createdocument;
-			
-			@FindBy(name="createdocname")
-			public WebElement createdocname;
-			
-			@FindBy(xpath="(//*[@name='product_sku'])[2]")
-			public WebElement producttype;
-			
-			//Postcard 3.5 x 5
-			
-			@FindBy(name="editorchoice")
-			public WebElement editorchoice;
-			
-			@FindBy(id="continue_create_doc_editor_mydoc")
-			public WebElement doccontinue;
-			
-			@FindBy(xpath="//*[text()='No']/parent::*")
-			public WebElement no;
-			
-			@FindBy(id="tool_text")
-			public WebElement abtext;
-			
-			@FindBy(xpath="(//*[@class='upper-canvas '])[3]")
-			public WebElement canvas;
-			
-			@FindBy(xpath="//*[@id='editor-mailmerge-confirm']")
-			public WebElement editor;
-			
-			@FindBy(id="editor-main-window-iframe")
-			public WebElement iframe;
-						
-			@FindBy(xpath="(//*[@id='dialog_buttons']/input[1])[1]")
-			public WebElement messageok;
-			
-			
-			
-			@FindBy(id="save_close_btn")
-			public WebElement saveandclose;
-			
-			
-			
-			
-			
-			
+	@FindBy(xpath="//button[@id='doc_grid_btn_save_closewindow']")
+	public WebElement  saveclose;
+		
+	@FindBy(xpath="//button[@id='form_savetemplate']")
+	public WebElement  savetemp;
+					
 	// operations
 
 	
@@ -320,8 +263,7 @@ public class Dashboard
 	{
 		addnewaddress.click();
 	}
-	
-	
+		
 	public void nickname(String name)
 	{
 		nickname.sendKeys(name);
@@ -479,25 +421,6 @@ public class Dashboard
 		savetemp.click();
 	}
 
-	
-	public void newproject()
-	{
-		newproject.click();
-	}
-	public void projectname(String pname)
-	{
-		projectname.sendKeys(pname);
-	}
-	public void okbutton()
-	{
-		okbutton.click();
-	}
-	public void accept()
-	{
-		accept.click();
-	}
-	
-		
 	public void deleteadd()
 	{
 		deleteadd.click();
@@ -507,44 +430,6 @@ public class Dashboard
 	del.click();
 	}
 	
-	public void mydocuments()
-	{
-		mydocuments.click();
-	}
-	public void createdocument()
-	{
-		createdocument.click();
-	}
-	public void createdocname(String a)
-	{
-		createdocname.sendKeys(a);
-	}
-	public void editorchoice()
-	{
-		editorchoice.click();
-	}
-	public void doccontinue()
-	{
-		doccontinue.click();
-	}
-	public void no()
-	{
-		no.click();
-	}
-	public void abtext()
-	{
-		abtext.click();
-	}
-	
-	public void canvas()
-	{
-		canvas.click();
-	}
-	
-	public void saveandclose()
-	{
-		saveandclose.click();
-	}
 	
 }
 

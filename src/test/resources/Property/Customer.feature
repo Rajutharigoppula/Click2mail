@@ -12,12 +12,12 @@ Feature: Customer module under test
    Then select prefix and enter customer details "Raj" and "tari" and "address1" and "Newyork" and "11011" and "123-456-7890"
 	 Then close browser
 	
-	@Test2
+	@smoketest @Test2
 	 Scenario: Person type customer creation
 	 Given open application with "chrome"
 	 When click on the new customer
 	 When select account type as person
-   And enter emailid and other details "test0312@mail.com" and "test0312" and "Test1234" and "Test1234" and "swift" and "swift"  
+   And enter emailid and other details "test1112@mail.com" and "test1112" and "Test1234" and "Test1234" and "swift" and "swift"  
    Then select prefix and enter customer details "TestName" and "TestLname" and "33 S Wood Ave #600" and "Iselin" and "08830" and "301-760-7499"
    Then close browser
    
@@ -107,8 +107,5 @@ Feature: Customer module under test
    Then click on myaccount link
    Then create molpro template "sampletemp1"
    Then close browser
-   
-       
-	 
    
    

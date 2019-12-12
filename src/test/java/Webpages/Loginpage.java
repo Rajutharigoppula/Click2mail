@@ -14,59 +14,82 @@ public class Loginpage
 	
 	@FindBy (xpath="//*[text()='New Customer']")
 	public WebElement newcust;
+	
 	@FindBy(id="personal_acc_type")
 	public WebElement person;
+	
 	@FindBy(id="bussiness_acc_type")
 	public WebElement business;
+	
 	@FindBy (name="email")
 	public WebElement emailid;
+	
 	@FindBy (name="username")
 	public WebElement userid;
+	
 	@FindBy (name="password")
 	public WebElement pwd;
+	
 	@FindBy (name="confirmation")
 	public WebElement cnfpwd;
+	
 	@FindBy (name="hintQuestion")
 	public WebElement hintq;
+	
 	@FindBy (name="hintAnswer")
 	public WebElement ans;
+	
 	@FindBy (name="confirmHintAnswer")
-	public WebElement cnfans; 
+	public WebElement cnfans;
+	
 	@FindBy (xpath="//*[text()='Continue']")
-	public WebElement cntebtn; 
+	public WebElement cntebtn;
+	
 	@FindBy (name="company_reg")
 	public WebElement companyname;
+	
 	@FindBy(name="industryType")
 	public WebElement industryType;
+	
 	@FindBy(xpath="//*[text()='Continue']")
 	public WebElement continuebutton;
+	
 	@FindBy(name="prefix")
 	public WebElement prefix;
+	
 	@FindBy(name="firstname_reg")
 	public WebElement firstname;
+	
 	@FindBy(name="lastname_reg")
 	public WebElement lastname;
+	
 	@FindBy(name="country_id")
 	public WebElement country;
+	
 	@FindBy(xpath="//*[@name='address1']")
 	public WebElement address1;
+	
 	@FindBy(xpath="//*[@id='city']")
 	public WebElement city;
+	
 	@FindBy(xpath="//*[@id='region_id']")
 	public WebElement region;
+	
 	@FindBy(xpath="//*[@name='postcode']")
 	public WebElement postcode;
+	
 	@FindBy(xpath="//*[@name='ustelephone']")
 	public WebElement ustelephone;
+	
 	@FindBy(id="register2")
 	public WebElement register;
+	
 	@FindBy(xpath="//*[@class='recaptcha-checkbox-checkmark']")
 	public WebElement captcha;
 	
 	@FindBy(xpath="//*[contains(text(), 'Thank you for registering')]")
 	public WebElement Thankyou;
 		
-	
 	//Customer Account Details
 
 	@FindBy(xpath="//ul[@class='inner myaccount']//li[2]")
@@ -117,41 +140,7 @@ public class Loginpage
 	@FindBy(xpath="//*[text()='The account information has been saved.']")
 	public WebElement  successmsg;
 	
-	// for my project
 	
-	@FindBy(xpath="//a[contains(text(),'My Projects')]")
-	public WebElement  MyProjects;
-	
-	@FindBy(xpath="//button[@id='myproj_create_new']")
-	public WebElement  newproject;
-	
-	@FindBy(xpath="//input[@id='projectname']")
-	public WebElement  projectname;
-	
-	@FindBy(xpath="//*[@id='new_project_ok']")
-	public WebElement  ok;
-		
-	//for deletion project
-	
-	@FindBy(xpath="//input[@id='main_search']")
-	public WebElement  searchbox;
-	
-	@FindBy(xpath="//button[@id='search_btn']")
-	public WebElement  searchbtn;
-	
-	
-	@FindBy(xpath="//select[@id='projectaction']")
-	public WebElement  action;
-	//Delete Project
-	
-	@FindBy(xpath="(//*[text()='Delete'])[2]/parent::*")
-	public WebElement  delete;
-	
-	@FindBy(xpath="//td[@class='ui-header']")
-	public WebElement  status;
-	
-	@FindBy(xpath="//*[@id='search_btn_top']")
-	public WebElement  searchbtntop;
 	
 	// for my mailing list
 	
@@ -221,245 +210,209 @@ public class Loginpage
 		this.driver=driver;
 		PageFactory.initElements(driver,this);
 	}
-	public void person()
+		public void person()
 		{
-		person.click();
+			person.click();
 		}
 	
-	public void business()
+		public void business()
 		{
-		business.click();
+			business.click();
 		}
 	
-	public void newcust()
+		public void newcust()
 		{
-		newcust.click();
+			newcust.click();
 		}
-	public void emailid(String x)
+		public void emailid(String x)
 		{
-		emailid.sendKeys(x);
+			emailid.sendKeys(x);
 		}
-	public void userid(String y)
+		public void userid(String y)
 		{
-		userid.sendKeys(y);
+			userid.sendKeys(y);
 		}
-	public void pwd(String z)
+		public void pwd(String z)
 		{
-		pwd.sendKeys(z);
+			pwd.sendKeys(z);
 		}
-	public void cnfpwd(String z1)
+		public void cnfpwd(String z1)
 		{
-		cnfpwd.sendKeys(z1);
+			cnfpwd.sendKeys(z1);
 		}
-	public void ans(String a)
+		public void ans(String a)
 		{
-		ans.sendKeys(a);
+			ans.sendKeys(a);
 		}
-	public void cnfans(String b)
+		public void cnfans(String b)
 		{
-		cnfans.sendKeys(b);
+			cnfans.sendKeys(b);
 		}
-	public void cntebtn()
+		public void cntebtn()
 		{
-		cntebtn.click();
+			cntebtn.click();
 		}
-	public void companyname(String c1)
+		public void companyname(String c1)
 		{
-		companyname.sendKeys(c1);
+			companyname.sendKeys(c1);
 		}
-	public void continuebutton()
+		public void continuebutton()
 		{
-		continuebutton.click();
+			continuebutton.click();
 		}
-	public void prefix()
+		public void prefix()
 		{
-		prefix.click();
+			prefix.click();
 		}
-	public void firstname(String name)
+		public void firstname(String name)
 		{
-		firstname.sendKeys(name);
+			firstname.sendKeys(name);
 		}	
-	public void lastname(String lname)
+		public void lastname(String lname)
 		{
-		lastname.sendKeys(lname);
+			lastname.sendKeys(lname);
 		}
-	public void country()
+		public void country()
 		{
-		country.click();
+			country.click();
 		}
-	public void address(String addresss1)
+		public void address(String addresss1)
 		{
-		address1.sendKeys(addresss1);
+			address1.sendKeys(addresss1);
 		}
-	public void city(String cty)
+		public void city(String cty)
 		{
-		city.sendKeys(cty);
+			city.sendKeys(cty);
 		}
-	public void region(String regionname)
+		public void region(String regionname)
 		{
-		region.sendKeys(regionname);
+			region.sendKeys(regionname);
 		}
-	public void ustelephone(String phnumber)
+		public void ustelephone(String phnumber)
 		{
-		ustelephone.sendKeys(phnumber);	
+			ustelephone.sendKeys(phnumber);	
 		}
-	public void postcode(String post)
+		public void postcode(String post)
 		{
-		postcode.sendKeys(post);
+			postcode.sendKeys(post);
 		}
-	public void captcha()
+		public void captcha()
 		{
-		captcha.click();
+			captcha.click();
 		}
-	public void register()
+		public void register()
 		{
-		register.click();
+			register.click();
 		}
 
 //	
 		public void account()
 		{
-		account.click();
+			account.click();
 		}
 		public void edit()
 		{
-		edit.click();
+			edit.click();
 		}
 		public void Fname(String x)
 		{
-		Fname.sendKeys(x);
+			Fname.sendKeys(x);
 		}
 		public void Lname(String y)
 		{
-		Lname.sendKeys(y);
+			Lname.sendKeys(y);
 		}
 		public void Email(String z)
 		{
-		Email.sendKeys(z);
+			Email.sendKeys(z);
 		}
 		public void phone(String a)
 		{
-		phone.sendKeys(a);
+			phone.sendKeys(a);
 		}
 		public void firstname1(String b)
 		{
-		firstname1.sendKeys(b);
+			firstname1.sendKeys(b);
 		}
 		public void lastname1(String c)
 		{
-		lastname1.sendKeys(c);
+			lastname1.sendKeys(c);
 		}
 		public void company(String d)
 		{
-		company.sendKeys(d);
+			company.sendKeys(d);
 		}
 		public void add1(String e)
 		{
-		add1.sendKeys(e);
+			add1.sendKeys(e);
 		}
 		public void city1(String f)
 		{
-		city1.sendKeys(f);
+			city1.sendKeys(f);
 		}
 		public void Zip(String g)
 		{
-		Zip.sendKeys(g);
+			Zip.sendKeys(g);
 		}
 		public void save1()
 		{
-		save1.click();
+			save1.click();
 		}
 		public void country1()
 		{
-		country1.click();
+			country1.click();
 		}
 		public void State()
 		{
-		State.click();
+			State.click();
 		}
-	
-	public void MyProjects()
-	{
-		MyProjects.click();
-	}
-	public void newproject()
-	{
-		newproject.click();
-	}
-	public void projectname(String x)
-	{
-		projectname.sendKeys(x);
-	}
-	public void ok()
-	{
-		ok.click();
-	}
-	public void searchbox(String x)
-	{
-		searchbox.sendKeys(x);
-	}
-	public void searchbtn()
-	{
-		searchbtn.click();
-	}
-	public void action()
-	{
-		action.click();
-	}
-	public void delete()
-	{
-		delete.click();
-	}
-	
-	
-	//
 		public void mailing()
 		{
-		mailing.click();
+			mailing.click();
 		}
 		public void newlist()
 		{
-		newlist.click();
+			newlist.click();
 		}
 		public void malingname(String a)
 		{
-		malingname.sendKeys(a);
+			malingname.sendKeys(a);
 		}
 		public void savemailing()
 		{
-		savemailing.click();
+			savemailing.click();
 		}
 		public void addreceipient()
 		{
-		addreceipient.click();
+			addreceipient.click();
 		}
 		public void Firstname(String b)
 		{
-		Firstname.sendKeys(b);
+			Firstname.sendKeys(b);
 		}
 		public void Lastname(String c)
 		{
-		Lastname.sendKeys(c);
+			Lastname.sendKeys(c);
 		}
 		public void Address1(String d)
 		{
-		Address1.sendKeys(d);
+			Address1.sendKeys(d);
 		}
 		public void City(String e)
 		{
-		City.sendKeys(e);
+			City.sendKeys(e);
 		}
 		public void Standardize()
 		{
-		Standardize.click();
+			Standardize.click();
 		}
 		public void close1()
 		{
-		close1.click();
+			close1.click();
 		}
 		public void done()
 		{
-		done.click();
+			done.click();
 		}
 		public void closeml()
 		{

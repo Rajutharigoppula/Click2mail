@@ -1,6 +1,11 @@
 package stepDefinition;
 
 import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,6 +26,9 @@ import Webpages.Dashboard;
 import Webpages.Homepage;
 import Webpages.Loginpage;
 import Webpages.MyAccount;
+import Webpages.MyDocuments;
+import Webpages.MyImages;
+import Webpages.MyProjects;
 import Webpages.Orderpages;
 import Webpages.Productpage;
 import cucumber.api.Scenario;
@@ -43,7 +51,9 @@ public class Gluecode
 	public Properties pro;
 	public WebDriverWait wait;
 	public MyAccount Ma;
-	
+	public MyProjects Mp;
+	public MyDocuments Md;
+	public MyImages Mi;
                                                                                                                                                                                                    
 	@Before
 	public void method1 (Scenario s) throws IOException 
@@ -82,6 +92,9 @@ public class Gluecode
     hp = new Homepage(driver);
     op = new Orderpages(driver);
     Ma = new MyAccount (driver);
+    Mp = new MyProjects(driver);
+    Md = new MyDocuments(driver);
+    Mi = new MyImages(driver);
 	driver.get(pro.getProperty("url"));
 	wait = new WebDriverWait(driver,50);
 	  }
@@ -121,6 +134,7 @@ public class Gluecode
 		
 	@Then("^select prefix and enter customer details \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\"$")
 	public void method1(String name, String lname,String addresss1,String cty,String post,String phnumber) throws InterruptedException
+		
 		{
 		Select prefix = new Select(lg.prefix);
 		prefix.selectByVisibleText("Mr.");
@@ -137,9 +151,9 @@ public class Gluecode
 		lg.register(); Thread.sleep(5000);
 		String successmsg = lg.Thankyou.getText();
 		System.out.println(successmsg);
-		
 		}
 		
+			
 	@When("^select account type as business$")
 	public void method22() throws InterruptedException
 		{
@@ -809,9 +823,9 @@ public class Gluecode
 	@Then("^create new project \"(.*)\"$")
 	public void method80(String pname) throws InterruptedException
 	{
-		Db.newproject();Thread.sleep(5000);
-		Db.projectname(pname);Thread.sleep(3000);
-		Db.okbutton();Thread.sleep(5000);
+		Mp.newproject();Thread.sleep(5000);
+		Mp.projectname(pname);Thread.sleep(3000);
+		Mp.okbutton();Thread.sleep(5000);
 	}
 		
 	@And("^delete retrun address additional address$")
@@ -880,23 +894,23 @@ public class Gluecode
 	@Then("^create a new project \"(.*)\"$")
 	public void method85(String x) throws InterruptedException
 	{
-		lg.MyProjects();Thread.sleep(4000);
-		lg.newproject();Thread.sleep(2000);
-		lg.projectname(x);
-		lg.ok();Thread.sleep(5000);
+		Mp.MyProject();Thread.sleep(4000);
+		Mp.newproject();Thread.sleep(2000);
+		Mp.projectname(x);
+		Mp.ok();Thread.sleep(5000);
 	}
 	
 	@Then("^delete a project \"(.*)\"$")
 	public void method86(String x) throws InterruptedException
 	{
-		lg.MyProjects();Thread.sleep(3000);
-		lg.searchbox(x);Thread.sleep(3000);
-		lg.searchbtn();Thread.sleep(3000);
-		wait.until(ExpectedConditions.visibilityOf(lg.searchbtntop));Thread.sleep(3000);
-		Select act = new Select(lg.action);
+		Mp.MyProject();Thread.sleep(3000);
+		Mp.searchbox(x);Thread.sleep(3000);
+		Mp.searchbtn();Thread.sleep(3000);
+		wait.until(ExpectedConditions.visibilityOf(Mp.searchbtntop));Thread.sleep(3000);
+		Select act = new Select(Mp.action);
 		act.selectByVisibleText("Delete Project");Thread.sleep(3000);
-		lg.delete();
-		wait.until(ExpectedConditions.visibilityOf(lg.status));Thread.sleep(3000);
+		Mp.delete();
+		wait.until(ExpectedConditions.visibilityOf(Mp.status));Thread.sleep(3000);
 	}
 	
 	@When("^create mailing list and one address \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\"$")
@@ -937,30 +951,30 @@ public class Gluecode
 	@And("^Create a document \"(.*)\" and \"(.*)\"$")
 	public void method88 (String a, String test) throws InterruptedException
 	{
-		Db.mydocuments();Thread.sleep(5000);
-		Db.createdocument();Thread.sleep(2000);
-		Db.createdocname(a);Thread.sleep(2000);
+		Md.mydocuments();Thread.sleep(5000);
+		Md.createdocument();Thread.sleep(2000);
+		Md.createdocname(a);Thread.sleep(2000);
 		
-		Select product = new Select(Db.producttype);Thread.sleep(2000);
+		Select product = new Select(Md.producttype);Thread.sleep(2000);
 		product.selectByVisibleText("Postcard 3.5 x 5"); Thread.sleep(2000);
 
-		Db.editorchoice(); Thread.sleep(5000);
-		Db.doccontinue(); Thread.sleep(5000);
-		wait.until(ExpectedConditions.visibilityOf(Db.editor));
+		Md.editorchoice(); Thread.sleep(5000);
+		Md.doccontinue(); Thread.sleep(5000);
+		wait.until(ExpectedConditions.visibilityOf(Md.editor));
 		Thread.sleep(3000);
-		Db.no(); Thread.sleep(4000);
+		Md.no(); Thread.sleep(4000);
 		driver.switchTo().frame("editor-main-window-iframe");
-		Db.abtext();  Thread.sleep(3000);
+		Md.abtext();  Thread.sleep(3000);
 		
 		Actions ToolTip1 = new Actions(driver);
-		ToolTip1.moveToElement(Db.canvas).moveByOffset(-50,-20).click()
+		ToolTip1.moveToElement(Md.canvas).moveByOffset(-50,-20).click()
 		.doubleClick()
 		.sendKeys(test)
 		.build()
 		.perform();
 		
 		Thread.sleep(5000);
-		Db.saveandclose();
+		Md.saveandclose();
 		
 	}
 	
@@ -979,13 +993,53 @@ public class Gluecode
 	public void method89() throws InterruptedException
 	{
 		lg.mailing();Thread.sleep(4000);
-		
-
-	
-		
-		
 	}
 	
+	@And("^upload a document under my documents$")
+	public void method90() throws InterruptedException
+	{
+		Md.mydocuments(); Thread.sleep(4000);
+		Md.upload(); Thread.sleep(6000);
+		Md.uploaddoc();Thread.sleep(4000);
+		
+	
+	}
+	
+	@And("^upload an image$")
+	public void method91() throws InterruptedException
+	{
+	Mi.MyImage(); Thread.sleep(4000);
+	Mi.uploadimage();Thread.sleep(4000);
+	
+    StringSelection stringSelection = new StringSelection("C:\\Users\\raju.tarigoppula\\Desktop\\Images\\devops.png");
+    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+    clipboard.setContents(stringSelection, null);
+
+    Robot robot = null;
+
+    try {
+        	robot = new Robot();
+    	}
+    catch (AWTException e) 
+    	{
+        	e.printStackTrace();
+    	}
+    Thread.sleep(4000);
+    robot.delay(250);
+    robot.keyPress(KeyEvent.VK_ENTER);
+    robot.keyRelease(KeyEvent.VK_ENTER);
+    robot.keyPress(KeyEvent.VK_CONTROL);
+    robot.keyPress(KeyEvent.VK_V);
+    robot.keyRelease(KeyEvent.VK_V);
+    robot.keyRelease(KeyEvent.VK_CONTROL);
+    robot.keyPress(KeyEvent.VK_ENTER);
+    robot.delay(150);
+    robot.keyRelease(KeyEvent.VK_ENTER);
+
+	Thread.sleep(4000);
+	Mi.ok();Thread.sleep(4000);
+	Mi.upload();
+	}
 	
 	
 	

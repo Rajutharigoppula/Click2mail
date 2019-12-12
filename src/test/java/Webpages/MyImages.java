@@ -9,8 +9,24 @@ public class MyImages {
 	
 	public WebDriver driver;
 	
-	@FindBy(xpath="x")
-	public WebElement x;
+	@FindBy(xpath="//*[@title='My Images']")
+	public WebElement MyImage;
+	
+	
+	@FindBy(id="upload_image_btn")
+	public WebElement uploadimage;
+	
+	@FindBy(id="new_project_ok")
+	public WebElement ok;
+	
+	@FindBy(xpath="//div[@id='button_set_one']//b[contains(text(),'Upload')]")
+	public WebElement upload;
+	
+	
+	
+	
+	
+	
 	
 	
 	//operations
@@ -25,9 +41,28 @@ public class MyImages {
 				
 			
 				
-				public void x()
+				public void MyImage()
 				{
-					x.click();
+					MyImage.click();
 				}
+				public void uploadimage()
+				{
+					uploadimage.click();
+				}
+				public void ok()
+				{
+					ok.click();
+				}
+				public void upload()
+				{
+					upload.click();
+				}
+				
+				
+				
+				
+				
+				
+				
 				
 }

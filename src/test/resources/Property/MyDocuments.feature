@@ -2,7 +2,6 @@
 
 @tag
 Feature: My documets test
-  
 
  @tag1
   Scenario: Create a document under my documents
@@ -16,3 +15,4 @@ Feature: My documets test
     Given open application with "chrome"
     Then enter username and password "testac41" and "Test1234" 
     Then click on myaccount link
+    And upload a document under my documents

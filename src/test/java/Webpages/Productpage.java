@@ -9,8 +9,8 @@ public class Productpage
 {
 	public WebDriver driver;
 
-	// print and mail list elements
-	//postcards
+		// print and mail list elements
+		// postcards
 	
 		@FindBy(xpath="(//*[text()='Postcard 3.5 x 5'])[2]")
 		public WebElement Ppostcard355;
@@ -92,8 +92,6 @@ public class Productpage
 		
 		@FindBy(xpath="//a[@href='https://dev.click2mail.com/by-product/brochures/brochure-11-x-8-5']")
 		public WebElement brochure;
-	
-
 
 		//Print and mail to list configurations elements
 		
@@ -111,9 +109,7 @@ public class Productpage
 		
 		@FindBy(xpath="(//*[@id='continueProof'])[1]")
 		public WebElement Continue;
-		
-
-
+	
 		//print and ship products
 		
 		@FindBy(xpath="(//*[text()='Postcard 4.25 x 6'])[2]")
@@ -144,11 +140,8 @@ public class Productpage
 		public WebElement  cardstock1245;
 		
 		
-		
-		
-		
 
-// operations
+		// operations
 
 		public Productpage (WebDriver driver)
 		{
@@ -159,17 +152,14 @@ public class Productpage
 		{
 		postcard4256.click();
 		}
-		
 		public void postcard49()
 		{
 			postcard49.click();
 		}
-		
 		public void postcard58()
 		{
 			postcard58.click();
 		}
-		
 		public void postcard611()
 		{
 			postcard611.click();
@@ -186,7 +176,6 @@ public class Productpage
 		{
 			brochure1185.click();
 		}
-		
 		public void flyer8511()
 		{
 			flyer8511.click();
@@ -195,7 +184,6 @@ public class Productpage
 		{
 			cardstock1245.click();
 		}
-		
 		public void printandmaillist()
 		{
 			printandmaillist.click();
@@ -212,12 +200,10 @@ public class Productpage
 		{
 			saveandclose.click();
 		}
-		
 		public void Continue()
 		{
 			Continue.click();
 		}
-		
 		public void Ppostcard355()
 		{
 			Ppostcard355.click();
