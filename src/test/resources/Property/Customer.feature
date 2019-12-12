@@ -1,6 +1,6 @@
 
 @Test
-Feature: Customer module under test
+Feature: Customer module Functionality Test
 
     @Test1(14722) 
    Scenario: Business type customer creation

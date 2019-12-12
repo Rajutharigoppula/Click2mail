@@ -1,6 +1,6 @@
 	
 @shipped
-Feature: Order placing with shipped products
+Feature: Verifing Order Functionality with shipped products
       
  @Test25
 Scenario: Order place with Postcard 3.5 x 5 - Shipped product

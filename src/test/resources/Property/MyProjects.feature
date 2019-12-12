@@ -1,14 +1,14 @@
 #Author: your.email@your.domain.com
 
 @tag
-Feature: My projects testing
+Feature: My projects Functionality Test
   
  
    @Test1
    Scenario: Create a new project
    Given open application with "chrome" 
    Then enter username and password "test0312" and "Test1234" 
-   Then click on myaccount link
+   Then click on myaccount
    Then create a new project "Pname1" 
    Then close browser
     
@@ -16,14 +16,14 @@ Feature: My projects testing
    Scenario: Delete a project
    Given open application with "chrome" 
    Then enter username and password "test0312" and "Test1234" 
-   Then click on myaccount link
+   Then click on myaccount
    Then delete a project "Pname1" 
    Then close browser     
 	@Test3
    Scenario Outline: Create multiple projects 
    Given open application with "chrome"
    Then enter username and password "testac41" and "Test1234" 
-   Then click on myaccount link
+   Then click on myaccount
    Then create new project "<project>" 
    Then close browser
     
