@@ -21,7 +21,11 @@ public class MyImages {
 	@FindBy(xpath="//div[@id='button_set_one']//b[contains(text(),'Upload')]")
 	public WebElement upload;
 	
+	@FindBy(xpath="(//*[text()='Delete Image'])[1]")
+	public WebElement deleteimage;
 		
+	@FindBy(xpath="//span[contains(text(),'Ok')]")
+	public WebElement ok2;
 	
 	//operations
 	
@@ -48,8 +52,14 @@ public class MyImages {
 		upload.click();
 	}
 				
-				
-				
+	public void deleteimage()
+	{
+		deleteimage.click();
+	}			
+	public void ok2()
+	{
+		ok2.click();
+	}
 							
 				
 				

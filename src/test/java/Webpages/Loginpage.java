@@ -142,62 +142,6 @@ public class Loginpage
 	
 	
 	
-	// for my mailing list
-	
-	@FindBy(xpath="//*[@title='My Mailing lists']/parent::*")
-	public WebElement  mailing;
-	
-	@FindBy(xpath="//span[contains(text(),'Create new list')]")
-	public WebElement  newlist;
-	
-	@FindBy(xpath="//input[@id='address_book_name']")
-	public WebElement  malingname;
-	
-	@FindBy(xpath="//a[@id='create_address_book']")
-	public WebElement  savemailing;
-	
-	@FindBy(id="ml_create_mailing_btn_close")
-	public WebElement  closeml;
-	
-	
-	@FindBy(xpath="//*[@id='ml_create_mailing_add_recp']")
-	public WebElement  addreceipient;
-	
-	@FindBy(xpath="//input[@id='rtn_firstName']")
-	public WebElement  Firstname;
-	
-	@FindBy(xpath="//input[@id='rtn_lastName']")
-	public WebElement  Lastname;
-	
-	@FindBy(xpath="//input[@id='recp_add1']")
-	public WebElement  Address1;
-	
-	@FindBy(xpath="//input[@id='recp_city']")
-	public WebElement  City;
-	
-	@FindBy(xpath="//select[@id='recp_state']")
-	public WebElement  State1;
-	
-	@FindBy(xpath="//span[contains(text(),'Standardize Address')]")
-	public WebElement  Standardize;
-	
-	@FindBy(xpath="//a[@id='ml_create_mailinglist_add_close']//img")
-	public WebElement  close1;
-		
-	@FindBy(xpath="//span[contains(text(),'Done')]")
-	public WebElement  done;
-	
-	@FindBy(xpath="//b[contains(text(),'Total Mailing lists:')]")
-	public WebElement Mailinglist;
-	
-	@FindBy(id="upload_list")
-	public WebElement uploadlist;
-	
-	@FindBy(xpath="//input[@id='importlistfile']")
-	public WebElement implist;
-	
-	@FindBy(id="uml_upload_btn_upload")
-	public WebElement uploadbtn;
 	
 	
 	
@@ -366,71 +310,6 @@ public class Loginpage
 		{
 			State.click();
 		}
-		public void mailing()
-		{
-			mailing.click();
-		}
-		public void newlist()
-		{
-			newlist.click();
-		}
-		public void malingname(String a)
-		{
-			malingname.sendKeys(a);
-		}
-		public void savemailing()
-		{
-			savemailing.click();
-		}
-		public void addreceipient()
-		{
-			addreceipient.click();
-		}
-		public void Firstname(String b)
-		{
-			Firstname.sendKeys(b);
-		}
-		public void Lastname(String c)
-		{
-			Lastname.sendKeys(c);
-		}
-		public void Address1(String d)
-		{
-			Address1.sendKeys(d);
-		}
-		public void City(String e)
-		{
-			City.sendKeys(e);
-		}
-		public void Standardize()
-		{
-			Standardize.click();
-		}
-		public void close1()
-		{
-			close1.click();
-		}
-		public void done()
-		{
-			done.click();
-		}
-		public void closeml()
-		{
-			closeml.click();
-		}
-		public void uploadlist()
-		{
-			uploadlist.click();
-		}
-		public void implist()
-		{
-			implist.click();
-		}
-		public void uploadbtn()
-		{
-			uploadbtn.click();
-		}
-		
 		
 		
 	}

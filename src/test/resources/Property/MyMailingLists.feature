@@ -12,7 +12,7 @@ Feature: My mailing list Functionality Test
    Then close browser
    
    
-@Test2
+ 	@Test2
    Scenario: Create a mailing list along with address
    Given open application with "chrome" 
    Then enter username and password "test0312" and "Test1234" 
@@ -20,17 +20,18 @@ Feature: My mailing list Functionality Test
    When create mailing list and one address "mlname6" and "maxwell" and "stud" and "newlane1" and "New York" 
    Then close browser
 
-@smoketest  @Test3
+@Test3
    Scenario: upload mailing list
    Given open application with "chrome" 
-   Then enter username and password "test0312" and "Test1234" 
+   Then enter username and password "testac41" and "Test1234" 
    Then click on myaccount
-   And upload mailing list
-   
-	@Test3
-   Scenario: upload mailing list
+   And upload mailing list "list1"
+   Then close browser
+      
+@smoketest  @Test3
+   Scenario: Create a job from mailinglist
    Given open application with "chrome"
-   Then enter username and password "test0312" and "Test1234" 
+   Then enter username and password "testac42" and "Test1234" 
    Then click on myaccount
    And create a job from my mailinglist
    

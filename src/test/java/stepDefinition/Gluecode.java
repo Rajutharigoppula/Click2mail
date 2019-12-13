@@ -28,6 +28,7 @@ import Webpages.Loginpage;
 import Webpages.MyAccount;
 import Webpages.MyDocuments;
 import Webpages.MyImages;
+import Webpages.MyMailingLists;
 import Webpages.MyProjects;
 import Webpages.Orderpages;
 import Webpages.Productpage;
@@ -54,6 +55,7 @@ public class Gluecode
 	public MyProjects Mp;
 	public MyDocuments Md;
 	public MyImages Mi;
+	public MyMailingLists Ml;
                                                                                                                                                                                                    
 	@Before
 	public void method1 (Scenario s) throws IOException 
@@ -95,9 +97,14 @@ public class Gluecode
     Mp = new MyProjects(driver);
     Md = new MyDocuments(driver);
     Mi = new MyImages(driver);
+    Ml = new MyMailingLists(driver);
+    
 	driver.get(pro.getProperty("url"));
-	wait = new WebDriverWait(driver,50);
-	  }
+	wait = new WebDriverWait(driver,100);
+	
+	
+	}
+	
 	  
 	@When("^click on the new customer$")
 	public void method3()
@@ -916,22 +923,22 @@ public class Gluecode
 	@When("^create mailing list and one address \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\"$")
 	public void method87(String a,String b,String c,String d,String e) throws InterruptedException
 	{
-		lg.mailing();Thread.sleep(4000);
-		lg.newlist();
-		wait.until(ExpectedConditions.visibilityOf(lg.malingname));
-		lg.malingname(a);Thread.sleep(2000);
-		lg.savemailing();Thread.sleep(7000);
-		lg.addreceipient();Thread.sleep(4000);
-		lg.Firstname(b);
-		lg.Lastname(c);
-		lg.Address1(d);
-		lg.City(e);
+		Ml.mailing();Thread.sleep(4000);
+		Ml.newlist();
+		wait.until(ExpectedConditions.visibilityOf(Ml.malingname));
+		Ml.malingname(a);Thread.sleep(2000);
+		Ml.savemailing();Thread.sleep(7000);
+		Ml.addreceipient();Thread.sleep(4000);
+		Ml.Firstname(b);
+		Ml.Lastname(c);
+		Ml.Address1(d);
+		Ml.City(e);
 		Thread.sleep(2000);
-		Select sta = new Select (lg.State1);
+		Select sta = new Select (Ml.State1);
 		sta.selectByVisibleText("New York");Thread.sleep(4000);
-		lg.Standardize();Thread.sleep(7000);
-		lg.close1();Thread.sleep(4000);
-		lg.done();Thread.sleep(7000);
+		Ml.Standardize();Thread.sleep(7000);
+		Ml.close1();Thread.sleep(4000);
+		Ml.done();Thread.sleep(7000);
 		//wait.until(ExpectedConditions.invisibilityOf(lg.Mailinglist));
 	
 		}
@@ -939,12 +946,12 @@ public class Gluecode
 	@When("^create mailing list \"(.*)\"$")
 	public void method87(String a) throws InterruptedException
 	{
-		lg.mailing();Thread.sleep(4000);
-		lg.newlist();
-		wait.until(ExpectedConditions.visibilityOf(lg.malingname));
-		lg.malingname(a);Thread.sleep(2000);
-		lg.savemailing();Thread.sleep(5000);
-		lg.closeml();Thread.sleep(2000);
+		Ml.mailing();Thread.sleep(4000);
+		Ml.newlist();
+		wait.until(ExpectedConditions.visibilityOf(Ml.malingname));
+		Ml.malingname(a);Thread.sleep(2000);
+		Ml.savemailing();Thread.sleep(5000);
+		Ml.closeml();Thread.sleep(2000);
 		
 	}
 	
@@ -978,21 +985,103 @@ public class Gluecode
 		
 	}
 	
-	@And("^upload mailing list$")
-	public void method87() throws InterruptedException, AWTException
+	@And("^upload mailing list \"(.*)\"$")
+	public void method88(String a) throws InterruptedException, AWTException
 	{
-		lg.mailing();Thread.sleep(4000);
-		lg.uploadlist();Thread.sleep(6000);
-		lg.implist(); Thread.sleep(4000);
-
+		Ml.mailing();
+		Thread.sleep(6000);
+		Ml.uploadlist();
+		Thread.sleep(8000);
+		
+		Actions action = new Actions(driver);
+		action.moveToElement(Ml.implist).click().perform();
 	
+		Thread.sleep(4000);
+		
+		StringSelection stringSelection = new StringSelection("D:\\us-50 address.xlsx");
+	    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+	    clipboard.setContents(stringSelection, null);
 
+	    Robot robot = null;
+
+	    try {
+	        	robot = new Robot();
+	    	}
+	    catch (AWTException e) 
+	    	{
+	        	e.printStackTrace();
+	    	}
+	    Thread.sleep(4000);
+	    robot.delay(250);
+	    robot.keyPress(KeyEvent.VK_ENTER);
+	    robot.keyRelease(KeyEvent.VK_ENTER);
+	    robot.keyPress(KeyEvent.VK_CONTROL);
+	    robot.keyPress(KeyEvent.VK_V);
+	    robot.keyRelease(KeyEvent.VK_V);
+	    robot.keyRelease(KeyEvent.VK_CONTROL);
+	    robot.keyPress(KeyEvent.VK_ENTER);
+	    robot.delay(150);
+	    robot.keyRelease(KeyEvent.VK_ENTER);
+
+	    Thread.sleep(6000);
+
+	    Ml.uploadbtn();
+		Thread.sleep(6000);
+
+		wait.until(ExpectedConditions.visibilityOf(Ml.previewpage));
+		
+		Select fname = new Select(Ml.fname);
+		fname.selectByVisibleText("FIRST_NAME"); Thread.sleep(2000);
+
+		Select lname = new Select(Ml.lname);
+		lname.selectByVisibleText("LAST_NAME"); Thread.sleep(2000);
+
+		Select cname = new Select(Ml.ffname);
+		cname.selectByVisibleText("COMPANY_NAME"); Thread.sleep(2000);
+
+		Select ph = new Select(Ml.lfname);
+		ph.selectByVisibleText("PHONE1"); Thread.sleep(2000);
+
+		Select add = new Select(Ml.add);
+		add.selectByVisibleText("ADDRESS"); Thread.sleep(2000);
+
+		Select city = new Select(Ml.city);
+		city.selectByVisibleText("CITY"); Thread.sleep(2000);
+
+		Select state = new Select(Ml.state);
+		state.selectByVisibleText("STATE"); Thread.sleep(2000);
+
+		Select zip = new Select(Ml.zip);
+		zip.selectByVisibleText("ZIP"); Thread.sleep(2000);
+
+		Ml.save(); Thread.sleep(8000);
+		wait.until(ExpectedConditions.visibilityOf(Ml.mymailinglistpage));
+		Thread.sleep(4000);
 	}
 	
 	@And("^create a job from my mailinglist$")
 	public void method89() throws InterruptedException
 	{
-		lg.mailing();Thread.sleep(4000);
+		Ml.mailing();Thread.sleep(4000);
+		Select action = new Select (Ml.actions);
+		action.selectByVisibleText("Start New Job");Thread.sleep(4000);
+		Ml.continue1();Thread.sleep(4000);
+		driver.switchTo().frame("iframe");
+		Ml.continue2();Thread.sleep(6000);
+			
+		op.upload();Thread.sleep(5000);
+		driver.switchTo().frame("iframe");
+		op.checkbox1();Thread.sleep(3000);
+		op.save();
+		driver.switchTo().defaultContent();Thread.sleep(7000);
+		Pd.edit();Thread.sleep(5000);
+		driver.switchTo().frame("iframe");
+		Pd.mailinglist();Thread.sleep(2000);
+		driver.switchTo().defaultContent();Thread.sleep(10000);
+		Ml.saveexit();	
+				
+		
+		
 	}
 	
 	@And("^upload a document under my documents$")
@@ -1040,6 +1129,65 @@ public class Gluecode
 	Mi.ok();Thread.sleep(4000);
 	Mi.upload();
 	}
+	
+	@And("^upload multiple images$")
+	public void method92() throws InterruptedException
+	{
+		
+	Mi.MyImage(); Thread.sleep(5000);
+    int i;
+    for (i = 1; i < 6; i++)
+    {
+	Mi.uploadimage();Thread.sleep(4000);
+	
+    StringSelection stringSelection = new StringSelection("C:\\Users\\raju.tarigoppula\\Desktop\\Images\\devops.png");
+    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+    clipboard.setContents(stringSelection, null);
+
+    Robot robot = null;
+
+    try {
+        	robot = new Robot();
+    	}
+    catch (AWTException e) 
+    	{
+        	e.printStackTrace();
+    	}
+    Thread.sleep(4000);
+    robot.delay(250);
+    robot.keyPress(KeyEvent.VK_ENTER);
+    robot.keyRelease(KeyEvent.VK_ENTER);
+    robot.keyPress(KeyEvent.VK_CONTROL);
+    robot.keyPress(KeyEvent.VK_V);
+    robot.keyRelease(KeyEvent.VK_V);
+    robot.keyRelease(KeyEvent.VK_CONTROL);
+    robot.keyPress(KeyEvent.VK_ENTER);
+    robot.delay(150);
+    robot.keyRelease(KeyEvent.VK_ENTER);
+
+	Thread.sleep(4000);
+	Mi.ok();Thread.sleep(4000);
+	Mi.upload();
+	Thread.sleep(5000);
+    System.out.println(i);
+
+	}
+
+	}
+	
+	@And("^Delete a image$")
+	public void method21() throws InterruptedException
+	{
+		Mi.MyImage(); Thread.sleep(5000);
+		Mi.deleteimage(); Thread.sleep(4000);
+		Mi.ok2();
+
+	}
+	
+	
+	
+	
+	
 	
 	
 	

@@ -1,6 +1,6 @@
 
 @Printlist
-Feature: Order placing with print and mail list products
+Feature: Verifing Order Functionality with print and mail list products
   
 
 @Test1
@@ -14,7 +14,7 @@ Scenario: Order place with Postcard 3.5 x 5 product
   	Then close browser 
   	
   
-@Test2
+@Regression @Test2
 Scenario: Order place with Postcard 4.25 x 6 product
     Given open application with "chrome"
     Then enter username and password "testac41" and "Test1234" 
@@ -84,7 +84,7 @@ Scenario: Order place with Notecard - Folded 4.125 x 5.5 product
     And enter initials for print mail "Rj" 
     Then close browser
     
- @Test9
+ @Regression @Test9
 Scenario: Order place with Rack Card 4 x 9 - Mailed product
     Given open application with "chrome"
     Then enter username and password "testac41" and "Test1234" 
