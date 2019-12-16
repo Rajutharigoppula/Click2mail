@@ -15,7 +15,7 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(features = 
 {"src\\test\\resources\\Property\\MyMailingLists.feature",
 		 },glue="stepDefinition",
-		monochrome = true,tags= {"@smoketest"},
+		monochrome = true,
 plugin={"com.cucumber.listener.ExtentCucumberFormatter:target/html/ExtentReport.html"})
 
 /* tags= {"@smoketest"}
@@ -39,25 +39,10 @@ public class Runnerclass
 	Reporter.setSystemInfo("Operating System Type", System.getProperty("os.name").toString());
 	Reporter.setSystemInfo("Environment", "Testing");
 	Reporter.setTestRunnerOutput("Test Execution Cucumber Report");
-	
+		
 	}
 
 } 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

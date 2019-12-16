@@ -13,6 +13,8 @@ import java.util.Properties;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -33,6 +35,7 @@ import Webpages.MyProjects;
 import Webpages.Orderpages;
 import Webpages.Productpage;
 import cucumber.api.Scenario;
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -61,11 +64,23 @@ public class Gluecode
 	public void method1 (Scenario s) throws IOException 
 		{
 		this.S=s;
+		System.out.println("Execution Scenario: " + s.getName());
 		pro = new Properties();
 		FileInputStream fip = new FileInputStream("src\\test\\resources\\paths\\Path.properties");
 		pro.load(fip);
 		}
-		
+	@After
+	public void method2()
+	{
+		S.write("Finished Scenario");
+		if(S.isFailed())
+		{
+			S.embed(((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES),"image/png");
+		}
+		driver.close();
+		driver.quit();
+	}
+	
 	
 	@Given("^open application with \"(.*)\"$" )
 	public void method2(String br) throws InterruptedException
@@ -1061,27 +1076,28 @@ public class Gluecode
 	
 	@And("^create a job from my mailinglist$")
 	public void method89() throws InterruptedException
+	
 	{
 		Ml.mailing();Thread.sleep(4000);
 		Select action = new Select (Ml.actions);
 		action.selectByVisibleText("Start New Job");Thread.sleep(4000);
-		Ml.continue1();Thread.sleep(4000);
+		Ml.continue1();Thread.sleep(8000);
 		driver.switchTo().frame("iframe");
-		Ml.continue2();Thread.sleep(6000);
-			
-		op.upload();Thread.sleep(5000);
+		Thread.sleep(6000);
+		Ml.continue2();Thread.sleep(9000);
+		op.upload();Thread.sleep(6000);
 		driver.switchTo().frame("iframe");
-		op.checkbox1();Thread.sleep(3000);
+		op.checkbox1();Thread.sleep(6000);
 		op.save();
 		driver.switchTo().defaultContent();Thread.sleep(7000);
 		Pd.edit();Thread.sleep(5000);
 		driver.switchTo().frame("iframe");
-		Pd.mailinglist();Thread.sleep(2000);
+		Pd.mailinglist();
+		Pd.saveandclose();
+		Thread.sleep(4000);
 		driver.switchTo().defaultContent();Thread.sleep(10000);
 		Ml.saveexit();	
-				
-		
-		
+					
 	}
 	
 	@And("^upload a document under my documents$")
@@ -1184,9 +1200,33 @@ public class Gluecode
 
 	}
 	
+	@And ("^Delete a mailinglist \"(.*)\"$")
+	public void method93(String x) throws InterruptedException
+	{
+		Ml.mailing();Thread.sleep(4000);
+		Ml.mlistsearch(x);Thread.sleep(2000);
+		Ml.searchbtn();
+		Thread.sleep(4000);
+		Select state = new Select(Ml.actions);
+		state.selectByVisibleText("Delete"); Thread.sleep(4000);
+		Ml.mldelete();
+	}
 	
+	@And("^Dublicate a mailinglist \"(.*)\" and \"(.*)\"$")
+	public void method94(String x, String y) throws InterruptedException
 	
-	
+	{
+		Ml.mailing();Thread.sleep(4000);
+		Ml.mlistsearch(x);Thread.sleep(2000);
+		Ml.searchbtn();
+		Thread.sleep(4000);
+		Select state = new Select(Ml.actions);
+		state.selectByVisibleText("Duplicate"); Thread.sleep(4000);
+		Ml.dubmlname(y);Thread.sleep(2000);
+		Ml.dubok();Thread.sleep(2000);
+		Ml.dupclose();Thread.sleep(2000);
+		
+	}
 	
 	
 	

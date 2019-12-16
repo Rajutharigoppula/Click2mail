@@ -97,7 +97,7 @@ public WebDriver driver;
 	@FindBy(xpath="//select[@id='zipdd']")
 	public WebElement zip;
 	//ZIP
-	@FindBy(xpath="//span[contains(text(),'Save and Close')]")
+	@FindBy(xpath="//*[@id='uml_upload_preview_btn_save']")
 	public WebElement save;
 	//for wait condition
 	@FindBy(xpath="//h2[contains(text(),'My Mailing Lists')]")
@@ -113,15 +113,34 @@ public WebDriver driver;
 	@FindBy(xpath="//a[@id='continue1']")
 	public WebElement continue1;
 	
-	@FindBy(id="continue_estimate")
+	@FindBy(xpath="//*[@id='continue_estimate']")
 	public WebElement continue2;
 	
 	@FindBy(xpath="(//*[text()='Save & Exit'])[2]")
 	public WebElement saveexit;
-	
-	
+		
 	@FindBy(id="continueProof")
 	public WebElement continueProof;
+	
+	//for delete
+	
+	@FindBy(id="mlist_search_word")
+	public WebElement mlistsearch;
+	
+	@FindBy(id="mlist_search_btn")
+	public WebElement searchbtn;
+	// action - Delete
+	@FindBy(xpath="//span[contains(text(),'Delete')]")
+	public WebElement mldelete;
+	
+	@FindBy(id="dup_maillist_name_id")
+	public WebElement dubmlname;
+	
+	@FindBy(id="ml_duplicate_btn_ok")
+	public WebElement dubok;
+	
+	@FindBy(id="ml_duplicate_btn_success_close")
+	public WebElement dupclose;
 	
 	
 	
@@ -228,6 +247,37 @@ public WebDriver driver;
 			{
 				saveexit.click();
 			}
+			public void mlistsearch(String x)
+			{
+				mlistsearch.sendKeys(x);
+			}
+			public void searchbtn()
+			{
+				searchbtn.click();
+			}
+			public void mldelete()
+			{
+				mldelete.click();
+			}
+			public void dubmlname(String y)
+			{
+				dubmlname.sendKeys(y);
+			}
+			public void dubok()
+			{
+				dubok.click();
+			}
+			public void dupclose()
+			{
+				dupclose.click();
+			}
+			
+			
+			
+			
+			
+			
+			
 			
 			
 }
