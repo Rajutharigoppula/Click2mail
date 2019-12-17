@@ -41,8 +41,7 @@ public class Runnerclass
 	Reporter.setSystemInfo("Environment", "Testing");
 	Reporter.setTestRunnerOutput("Test Execution Cucumber Report");
 		
-	
-	
+		
     Properties p = new Properties();
     p.list(System.out);
 
