@@ -1,6 +1,7 @@
 package Runnerclass;
 
 import java.io.File;
+import java.util.Properties;
 
 import org.junit.AfterClass;
 import org.junit.runner.RunWith;
@@ -14,7 +15,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = 
 {"src\\test\\resources\\Property\\MyMailingLists.feature",
-		 },glue="stepDefinition",
+		 },glue="stepDefinition",tags= {"@smoketest"},
 		monochrome = true,
 plugin={"com.cucumber.listener.ExtentCucumberFormatter:target/html/ExtentReport.html"})
 
@@ -40,6 +41,15 @@ public class Runnerclass
 	Reporter.setSystemInfo("Environment", "Testing");
 	Reporter.setTestRunnerOutput("Test Execution Cucumber Report");
 		
+	
+	
+    Properties p = new Properties();
+    p.list(System.out);
+
+
+	
+	
+	
 	}
 
 } 

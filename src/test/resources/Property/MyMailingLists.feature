@@ -3,7 +3,7 @@
 @tag
 Feature: My mailing list Functionality Test
 
-@Test1
+@smoketest  @Test1
    Scenario: Create a mailing list
    Given open application with "chrome" 
    Then enter username and password "testac41" and "Test1234" 
@@ -11,7 +11,7 @@ Feature: My mailing list Functionality Test
    When create mailing list "mllnamez1" 
    Then close browser
       
- 	@Test2
+ 	@smoketest @Test2
    Scenario: Create a mailing list along with address
    Given open application with "chrome" 
    Then enter username and password "testac41" and "Test1234" 
@@ -42,7 +42,7 @@ Feature: My mailing list Functionality Test
    Then click on myaccount
    And Delete a mailinglist "dup1"
               
- @smoketest  @Test6
+   @Test6
 	 Scenario: Create a dublicate mailinglist
    Given open application with "chrome"
    Then enter username and password "testac42" and "Test1234" 

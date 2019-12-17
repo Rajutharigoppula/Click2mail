@@ -68,19 +68,24 @@ public class Gluecode
 		pro = new Properties();
 		FileInputStream fip = new FileInputStream("src\\test\\resources\\paths\\Path.properties");
 		pro.load(fip);
+
 		}
+	
+
 	@After
-	public void method2()
+	public void method2(Scenario s)
 	{
-		S.write("Finished Scenario");
-		if(S.isFailed())
+		this.S = s;
+		s.write("Finished Scenario");
+		if(s.isFailed())
 		{
-			S.embed(((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES),"image/png");
+			s.embed(((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES),"image/png");
 		}
 		driver.close();
 		driver.quit();
+		
 	}
-	
+		
 	
 	@Given("^open application with \"(.*)\"$" )
 	public void method2(String br) throws InterruptedException
