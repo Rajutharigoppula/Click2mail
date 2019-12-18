@@ -11,25 +11,19 @@ import com.cucumber.listener.Reporter;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
-
 @RunWith(Cucumber.class)
 @CucumberOptions(features = 
 {"src\\test\\resources\\Property\\Customer.feature",
-		 },glue="stepDefinition",tags= {"@smoketest"},
-		monochrome = true,
+		"src\\test\\resources\\Property\\MyDocuments.feature",
+		"src\\test\\resources\\Property\\MyImages.feature",
+		"src\\test\\resources\\Property\\MyMailingLists.feature",
+		"src\\test\\resources\\Property\\MyProjects.feature",
+		"src\\test\\resources\\Property\\Print.feature",
+		"src\\test\\resources\\Property\\Shipped.feature" },glue="stepDefinition",monochrome = true,
 plugin={"com.cucumber.listener.ExtentCucumberFormatter:target/html/ExtentReport.html"})
 
-/* tags= {"@smoketest"}
-"src\\test\\resources\\Property\\MyDocuments.feature",
-"src\\test\\resources\\Property\\MyImages.feature",
-"src\\test\\resources\\Property\\MyMailingLists.feature",
-"src\\test\\resources\\Property\\MyProjects.feature",
-"src\\test\\resources\\Property\\Print.feature",
-"src\\test\\resources\\Property\\Shipped.feature"  */
-
 public class Runnerclass
-
-{
+	{
 	@AfterClass
 	public static void setup()
 	{
@@ -40,24 +34,22 @@ public class Runnerclass
 	Reporter.setSystemInfo("Operating System Type", System.getProperty("os.name").toString());
 	Reporter.setSystemInfo("Environment", "Testing");
 	Reporter.setTestRunnerOutput("Test Execution Cucumber Report");
-		
-		
+			
     Properties p = new Properties();
     p.list(System.out);
-
-	
-	
 	}
-
 } 
 
 
-
-
-
+/* tags= {"@smoketest"}
+"src\\test\\resources\\Property\\MyDocuments.feature",
+"src\\test\\resources\\Property\\MyImages.feature",
+"src\\test\\resources\\Property\\MyMailingLists.feature",
+"src\\test\\resources\\Property\\MyProjects.feature",
+"src\\test\\resources\\Property\\Print.feature",
+"src\\test\\resources\\Property\\Shipped.feature"  */
 
 
 //plugin= {"pretty","html:target"},
 //D:\\SELENIUM\\Click2mail\\C2M\\src\\test\\resources\\Property\\Shipped.feature",
 //"D:\\SELENIUM\\Click2mail\\C2M\\src\\test\\resources\\Property\\Print.feature
-//tags= {"@smoketest"},

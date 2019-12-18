@@ -7,17 +7,17 @@ Feature: My projects Functionality Test
    @Test1
    Scenario: Create a new project
    Given open application with "chrome" 
-   Then enter username and password "test0312" and "Test1234" 
+   Then enter username and password "testac41" and "Test1234" 
    Then click on myaccount
-   Then create a new project "Pname1" 
+   Then create a new project "test56" 
    Then close browser
     
    @pending @Test2
    Scenario: Delete a project
    Given open application with "chrome" 
-   Then enter username and password "test0312" and "Test1234" 
+   Then enter username and password "testac41" and "Test1234" 
    Then click on myaccount
-   Then delete a project "Pname1" 
+   Then delete a project "test56" 
    Then close browser     
 	@Test3
    Scenario Outline: Create multiple projects 

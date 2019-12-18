@@ -53,7 +53,7 @@ Scenario: Order place with Postcard 6 x 11 - Shipped product
   	Then close browser
  
 @Test30
-Scenario: order place with Postcard 6.5 x 9 - Shipped product
+Scenario: Order place with Postcard 6.5 x 9 - Shipped product
     Given open application with "chrome" 
     Then enter username and password "testac41" and "Test1234" 
     Then select print and ship
@@ -63,7 +63,7 @@ Scenario: order place with Postcard 6.5 x 9 - Shipped product
   	Then close browser
   	
  @Test31
-Scenario: order place with Rack Card 4 x 9 - Shipped product
+Scenario: Order place with Rack Card 4 x 9 - Shipped product
     Given open application with "chrome" 
     Then enter username and password "testac41" and "Test1234" 
     Then select print and ship
@@ -73,7 +73,7 @@ Scenario: order place with Rack Card 4 x 9 - Shipped product
   	Then close browser
   	
  @Test32
-Scenario: order place with Brochure 11 x 8.5 - Shipped product
+Scenario: Order place with Brochure 11 x 8.5 - Shipped product
     Given open application with "chrome" 
     Then enter username and password "testac41" and "Test1234" 
     Then select print and ship
@@ -83,7 +83,7 @@ Scenario: order place with Brochure 11 x 8.5 - Shipped product
   	Then close browser
   	
  @Test33
-Scenario: order place with Flyer 8.5 x 11 - Shipped product
+Scenario: Order place with Flyer 8.5 x 11 - Shipped product
     Given open application with "chrome"
     Then enter username and password "testac41" and "Test1234" 
     Then select print and ship
@@ -94,7 +94,7 @@ Scenario: order place with Flyer 8.5 x 11 - Shipped product
   	
   	
  @Test34
-Scenario: order place with Cardstock 12 x 4.5 - Shipped product
+Scenario: Order place with Cardstock 12 x 4.5 - Shipped product
     Given open application with "chrome" 
     Then enter username and password "testac41" and "Test1234" 
     Then select print and ship

@@ -1,7 +1,7 @@
 #Author: your.email@your.domain.com
 
 @tag
-Feature: My Images functionality Test
+Feature: MyImages functionality Test
   
   @Test1
   Scenario: upload image to my images

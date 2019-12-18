@@ -1,7 +1,7 @@
 #Author: your.email@your.domain.com
 
 @tag
-Feature: My documets Functionality Test
+Feature: Mydocumets Functionality Test
 
  @tag1
   Scenario: Create a document under my documents

@@ -97,13 +97,6 @@ public class MyAccount {
 	@FindBy(id="authnetcim_ach-echeck-account-number")
 	public WebElement actnumb;
 	
-
-
-	
-	
-	
-	
-	
 	
 	//operations
 	
@@ -192,11 +185,6 @@ public class MyAccount {
 	{
 		echeck.click();
 	}
-	
-	
-	
-	
-	
 	
 	
 	

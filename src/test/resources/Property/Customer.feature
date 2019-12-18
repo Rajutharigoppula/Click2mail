@@ -7,7 +7,7 @@ Feature: Customer module Functionality Test
    Given open application with "chrome"
    When click on the new customer 
    When select account type as business
-   And enter emailid and other details "ra11324@i95dev.com" and "userb31" and "P@ssw0rd" and "P@ssw0rd" and "swift" and "swift"     
+   And enter emailid and other details "raw365@i95dev.com" and "userc32" and "Test1234" and "Test1234" and "swift" and "swift"     
    And enter companyname "Jiva" 
    Then select prefix and enter customer details "Raj" and "tari" and "address1" and "Newyork" and "11011" and "123-456-7890"
 	 Then close browser
@@ -17,7 +17,7 @@ Feature: Customer module Functionality Test
 	 Given open application with "chrome"
 	 When click on the new customer
 	 When select account type as person
-   And enter emailid and other details "test1112@mail.com" and "test1112" and "Test1234" and "Test1234" and "swift" and "swift"  
+   And enter emailid and other details "raw366@mail.com" and "userc33" and "Test1234" and "Test1234" and "swift" and "swift"  
    Then select prefix and enter customer details "TestName" and "TestLname" and "33 S Wood Ave #600" and "Iselin" and "08830" and "301-760-7499"
    Then close browser
    
@@ -26,34 +26,34 @@ Feature: Customer module Functionality Test
    Given open application with "chrome" 
    Then enter username and password "testac41" and "Test1234"
    Then click on myaccount
-   Then update account details "Raju" and "tari" and "test129@i95dev.com" and "123-244-5874" and "anup" and "kumar" and "wipro" and "new address" and "New York" and "11011" 
+   Then update account details "Raju" and "tari" and "raw367@mail.com" and "123-244-5874" and "anup" and "kumar" and "wipro" and "new address" and "New York" and "11011" 
    Then close browser
    
    @Test4
    Scenario: Verify fogot username functinality 
    Given open application with "chrome" 
-   Then click on forgot username "test12@test.com"
+   Then click on forgot username "raw367@mail.com"
    Then close browser
    
    @Test5
    Scenario: Verifty forgot password functinoality
    Given open application with "chrome" 
-   Then click on forgot password "testac3" 
+   Then click on forgot password "userc32" 
    Then close browser
    
    @Test6
 	 Scenario: Verify create Buy credit functionality
 	 Given open application with "chrome" 
-   Then enter username and password "testac71" and "Test1234"
+   Then enter username and password "testac41" and "Test1234"
    Then click on myaccount
-   Then enter buy credit amount "250"
+   Then enter buy credit amount "35"
    Then enter card details "4111111111111111" and "123"
    Then close browser
     
    @Test7(14723)
-   Scenario: Customer addresses creation
+   Scenario: Customer all addresses creation
    Given open application with "chrome" 
-   Then enter username and password "raju1127" and "Test1234"
+   Then enter username and password "testac41" and "Test1234"
    Then click on myaccount
    Then click on addresses link
    Then enter address type "Return" 
@@ -81,7 +81,7 @@ Feature: Customer module Functionality Test
    Then enter username and password "testac41" and "Test1234"
    Then click on myaccount 
    Then click on addresses link
-   Then enter address type "Return" 
+   Then enter address type "Return1" 
               
    @Test9      
    Scenario: Customer addresses deletion
@@ -103,7 +103,7 @@ Feature: Customer module Functionality Test
    Given open application with "chrome"
    Then enter username and password "testac41" and "Test1234" 
    Then click on myaccount
-   Then create molpro template "sampletemp1"
+   Then create molpro template "sampletemp5"
    Then close browser
    
    @Test12
