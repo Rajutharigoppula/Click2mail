@@ -1233,10 +1233,74 @@ public class Gluecode
 		
 	}
 	
+	@And("^create my payment data for manage cc \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\"$")
+	public void method95(String x,String y,String z,String s,String c,String zi,String ct,
+			String cn,String cv) throws InterruptedException
+		
+	{
+		Ma.Managecc();Thread.sleep(2000);
+		Ma.Fname(x);Thread.sleep(2000);
+		Ma.Lname(y);Thread.sleep(2000);
+		Ma.teleph(z);Thread.sleep(2000);
+		Ma.street(s);Thread.sleep(2000);
+		Ma.city(c);Thread.sleep(2000);
+		
+		Select region = new Select(Ma.region);
+		region.selectByVisibleText("California"); Thread.sleep(4000);
+		
+		Ma.zip(zi);Thread.sleep(2000);
+		
+		Select country= new Select(Ma.country);
+		country.selectByVisibleText("United States"); Thread.sleep(4000);
+		
+		Ma.cctype(ct);Thread.sleep(2000);
+		Ma.ccnumb(cn);Thread.sleep(2000);
+		
+		Select month = new Select(Ma.ccmonth);
+		month.selectByVisibleText("03 - March"); Thread.sleep(4000);
+		
+		Select year= new Select(Ma.ccyear);
+		year.selectByVisibleText("2022"); Thread.sleep(5000);
+	/*
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+	    js.executeScript("window.scrollTo(0, document.body.scrollHeight)"); */
+		Ma.cvv(cv);Thread.sleep(2000);
+		Ma.submit();Thread.sleep(2000);
+		System.out.println(Ma.successmsg.getText());
+		Thread.sleep(2000);
+	}
+	
+	@And("create my payment Data for manage E-check \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\"$")
+	public void method96(String x1,String x2,String x3,String x4,String x5,String x6,String x7,String x8,String x9, String xx ) throws InterruptedException
+	{
+		Ma.echeck();Thread.sleep(2000);
+		Ma.Fname(x1);Thread.sleep(2000);
+		Ma.Lname(x2);Thread.sleep(2000);
+		Ma.teleph(x3);Thread.sleep(2000);
+		Ma.street(x4);Thread.sleep(2000);
+		Ma.city(x5);Thread.sleep(2000);
+		
+		Select region = new Select(Ma.region);
+		region.selectByVisibleText("California"); Thread.sleep(4000);
+		
+		Ma.postcode(x6);
+		Ma.actname(x7);
+		Ma.bankname(x8);
+		Ma.routingnumb(x9);
+		Ma.actnumb(xx);
+		Ma.submit();Thread.sleep(2000);
+		System.out.println(Ma.successmsg.getText());
+		Thread.sleep(2000);
+	}
+	
+	
+	
+	
 	
 	
 	
 }
+
 
 	
 	

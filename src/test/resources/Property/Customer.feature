@@ -12,7 +12,7 @@ Feature: Customer module Functionality Test
    Then select prefix and enter customer details "Raj" and "tari" and "address1" and "Newyork" and "11011" and "123-456-7890"
 	 Then close browser
 	
-	@smoketest @Test2
+	 @Test2
 	 Scenario: Person type customer creation
 	 Given open application with "chrome"
 	 When click on the new customer
@@ -89,8 +89,7 @@ Feature: Customer module Functionality Test
    Then enter username and password "testac41" and "Test1234"
    Then click on myaccount 
    And delete retrun address additional address
-         
- 	 
+          	 
    @Test10
    Scenario: return address deletion from additional address
    Given open application with "chrome" 
@@ -98,9 +97,8 @@ Feature: Customer module Functionality Test
    Then click on myaccount
    And delete retrun address additional address
    Then close browser
-       
-   
-   @Test1
+          
+   @Test11
    Scenario: Create a job templates 
    Given open application with "chrome"
    Then enter username and password "testac41" and "Test1234" 
@@ -108,4 +106,37 @@ Feature: Customer module Functionality Test
    Then create molpro template "sampletemp1"
    Then close browser
    
+   @Test12
+   Scenario: Create a Payment Data Manage CC Payment Information
+   Given open application with "chrome"
+   Then enter username and password "testac41" and "Test1234" 
+   Then click on myaccount
+	 And create my payment data for manage cc "raju" and "tari" and "123-587-5874" and "streetname" and "city" and "11011" and "visa" and "4111111111111111" and "111"   
+   
+   
+   @smoketest @Test13
+   Scenario: Create a Payment Data Manage E-Check Payment Information
+   Given open application with "chrome"
+   Then enter username and password "testac41" and "Test1234" 
+   Then click on myaccount
+   And create my payment Data for manage E-check "rat" and "tar" and "123-587-5874" and "streetname" and "cityname" and "11011" and "testac" and "hsbc" and "101100045" and "123456789"
+    
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    
    

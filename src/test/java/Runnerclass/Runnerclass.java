@@ -14,7 +14,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = 
-{"src\\test\\resources\\Property\\MyMailingLists.feature",
+{"src\\test\\resources\\Property\\Customer.feature",
 		 },glue="stepDefinition",tags= {"@smoketest"},
 		monochrome = true,
 plugin={"com.cucumber.listener.ExtentCucumberFormatter:target/html/ExtentReport.html"})
@@ -45,8 +45,6 @@ public class Runnerclass
     Properties p = new Properties();
     p.list(System.out);
 
-
-	
 	
 	
 	}

@@ -9,7 +9,7 @@ public class Dashboard
 {
 	
 	public WebDriver driver;
-
+	//buy credit
 	@FindBy(xpath="(//*[contains(text(),'My Account')])[1]")
 	public WebElement  Myaccount; 
 	
