@@ -1,8 +1,6 @@
 package Runnerclass;
 
 import java.io.File;
-import java.util.Properties;
-
 import org.junit.AfterClass;
 import org.junit.runner.RunWith;
 
@@ -14,12 +12,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = 
 {"src\\test\\resources\\Property\\Customer.feature",
-		"src\\test\\resources\\Property\\MyDocuments.feature",
-		"src\\test\\resources\\Property\\MyImages.feature",
-		"src\\test\\resources\\Property\\MyMailingLists.feature",
-		"src\\test\\resources\\Property\\MyProjects.feature",
-		"src\\test\\resources\\Property\\Print.feature",
-		"src\\test\\resources\\Property\\Shipped.feature" },glue="stepDefinition",monochrome = true,
+	 },glue="stepDefinition",tags= {"@smoketest"},monochrome = true,
 plugin={"com.cucumber.listener.ExtentCucumberFormatter:target/html/ExtentReport.html"})
 
 public class Runnerclass
@@ -34,11 +27,9 @@ public class Runnerclass
 	Reporter.setSystemInfo("Operating System Type", System.getProperty("os.name").toString());
 	Reporter.setSystemInfo("Environment", "Testing");
 	Reporter.setTestRunnerOutput("Test Execution Cucumber Report");
-			
-    Properties p = new Properties();
-    p.list(System.out);
+
 	}
-} 
+	} 
 
 
 /* tags= {"@smoketest"}

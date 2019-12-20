@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
@@ -35,7 +36,6 @@ import Webpages.MyProjects;
 import Webpages.Orderpages;
 import Webpages.Productpage;
 import cucumber.api.Scenario;
-import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -65,28 +65,14 @@ public class Gluecode
 		{
 		this.S=s;
 		System.out.println("Execution Scenario: " + s.getName());
+		
+		
 		pro = new Properties();
 		FileInputStream fip = new FileInputStream("src\\test\\resources\\paths\\Path.properties");
 		pro.load(fip);
-
 		}
-	
 
-	@After
-	public void method2(Scenario s)
-	{
-		this.S = s;
-		s.write("Finished Scenario");
-		if(s.isFailed())
-		{
-			s.embed(((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES),"image/png");
-		}
-		driver.close();
-		driver.quit();
 		
-	}
-		
-	
 	@Given("^open application with \"(.*)\"$" )
 	public void method2(String br) throws InterruptedException
 	  {
@@ -1234,15 +1220,16 @@ public class Gluecode
 	}
 	
 	@And("^create my payment data for manage cc \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\"$")
-	public void method95(String x,String y,String z,String s,String c,String zi,String ct,
+	public void method95(Scenario s, String x,String y,String z,String s1,String c,String zi,String ct,
 			String cn,String cv) throws InterruptedException
 		
 	{
+		this.S=s;
 		Ma.Managecc();Thread.sleep(2000);
 		Ma.Fname(x);Thread.sleep(2000);
 		Ma.Lname(y);Thread.sleep(2000);
 		Ma.teleph(z);Thread.sleep(2000);
-		Ma.street(s);Thread.sleep(2000);
+		Ma.street(s1);Thread.sleep(2000);
 		Ma.city(c);Thread.sleep(2000);
 		
 		Select region = new Select(Ma.region);
@@ -1265,9 +1252,30 @@ public class Gluecode
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 	    js.executeScript("window.scrollTo(0, document.body.scrollHeight)"); */
 		Ma.cvv(cv);Thread.sleep(2000);
-		Ma.submit();Thread.sleep(2000);
-		System.out.println(Ma.successmsg.getText());
-		Thread.sleep(2000);
+		Ma.submit();Thread.sleep(4000);
+		
+		String t = Ma.successmsg.getText();
+		try
+		{
+			if(t.equalsIgnoreCase("your payment data saved"))
+			{
+				System.out.println(t);
+				s.write("Test passed");
+			}
+			else
+			{
+				byte ssbytes[]=((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+				s.embed(ssbytes,"Test Failed");
+				Assert.fail();
+			}
+		}
+		catch(Exception ex)
+		{
+			byte ssbytes[]=((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+			s.embed(ssbytes,ex.getMessage());
+			
+		}
+		
 	}
 	
 	@And("create my payment Data for manage E-check \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\"$")
@@ -1288,19 +1296,10 @@ public class Gluecode
 		Ma.bankname(x8);
 		Ma.routingnumb(x9);
 		Ma.actnumb(xx);
-		Ma.submit();Thread.sleep(2000);
-		System.out.println(Ma.successmsg.getText());
-		Thread.sleep(2000);
-	}
-	
-	
-	
-	
-	
-	
-	
+		Ma.submit();Thread.sleep(4000);
+		System.out.println(Ma.successmsg);
 }
-
+}
 
 	
 	
