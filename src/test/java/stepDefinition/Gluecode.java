@@ -36,6 +36,7 @@ import Webpages.MyProjects;
 import Webpages.Orderpages;
 import Webpages.Productpage;
 import cucumber.api.Scenario;
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -59,11 +60,13 @@ public class Gluecode
 	public MyDocuments Md;
 	public MyImages Mi;
 	public MyMailingLists Ml;
+		
                                                                                                                                                                                                    
 	@Before
 	public void method1 (Scenario s) throws IOException 
 		{
 		this.S=s;
+		System.out.println("launch application with google chrome");
 		System.out.println("Execution Scenario: " + s.getName());
 		
 		
@@ -71,9 +74,22 @@ public class Gluecode
 		FileInputStream fip = new FileInputStream("src\\test\\resources\\paths\\Path.properties");
 		pro.load(fip);
 		}
+	
+	
+	@After
+	public void tearDown(Scenario s) 
+	{		
+		this.S=s;
 
-		
-	@Given("^open application with \"(.*)\"$" )
+	    if (s.isFailed()) 
+	    {
+	            final byte[] screenshot = ((TakesScreenshot) driver)
+	                        .getScreenshotAs(OutputType.BYTES);
+	            s.embed(screenshot, "image/png"); //stick it in the report
+	    }
+	    driver.close();
+	}
+	@Given("^open application with\"(.*)\"$" )
 	public void method2(String br) throws InterruptedException
 	  {
 		if(br.equalsIgnoreCase("chrome"))
@@ -93,7 +109,6 @@ public class Gluecode
 		}		
 		
 		
-    driver.manage().window().maximize();			
     lg = new Loginpage(driver);
     Pd = new Productpage(driver);
     Db = new Dashboard(driver);
@@ -107,8 +122,7 @@ public class Gluecode
     
 	driver.get(pro.getProperty("url"));
 	wait = new WebDriverWait(driver,100);
-	
-	
+		
 	}
 	
 	  
@@ -118,8 +132,6 @@ public class Gluecode
 		lg.newcust();
 		}
 		
-
-	
 	@And("^enter emailid and other details \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\" and \"(.*)\"$")
 	public void method(String x, String y, String z, String z1, String a, String b) throws InterruptedException
 		{
@@ -347,6 +359,7 @@ public class Gluecode
 	driver.switchTo().window(tabs_windows.get(0));
 	wait.until(ExpectedConditions.visibilityOf(op.Initials));
 	op.yes();
+	
 	}
 	
 	@And("^enter initials for shiped product \"(.*)\"$")
@@ -371,7 +384,6 @@ public class Gluecode
 	op.accept();	Thread.sleep(5000);
 	op.placeorder(); Thread.sleep(5000);
 	wait.until(ExpectedConditions.visibilityOf(op.success));
-		
 	}
 
 	@Then("^select print and mail list products$")
@@ -386,7 +398,6 @@ public class Gluecode
 	@Then("^print and mail products place an order$")
 	public void method35() throws InterruptedException	
 	{
-	
 	op.Startbutton();Thread.sleep(5000); 
 	op.startjob1();Thread.sleep(5000);
 	op.upload();Thread.sleep(5000);
@@ -405,8 +416,7 @@ public class Gluecode
 	driver.switchTo().window(tabs_windows.get(0));
 	op.yes();Thread.sleep(5000);
 	}
-		
-		
+			
 	@And("^enter initials for print mail \"(.*)\"$")
 	public void method47 (String ab) throws InterruptedException
 	{
@@ -572,7 +582,6 @@ public class Gluecode
 	
 	//buy credit
 	
-			
 	
 	@Then("^enter buy credit amount \"(.*)\"$")
 	public void method73(String z) throws InterruptedException
@@ -588,8 +597,7 @@ public class Gluecode
 		Select cardtype = new Select(Db.cardtype);
 		cardtype.selectByVisibleText("Visa");
 			
-	}
-	
+	 }	
 	@Then("^enter card details \"(.*)\" and \"(.*)\"$")
 	public void method74(String x, String y) throws InterruptedException
 	{
@@ -631,7 +639,6 @@ public class Gluecode
 	{
 		Db.returnadd();
 		Thread.sleep(6000);
-
 		
 	}
 	else if(xy.equalsIgnoreCase("billing"))
@@ -1298,7 +1305,57 @@ public class Gluecode
 		Ma.actnumb(xx);
 		Ma.submit();Thread.sleep(4000);
 		System.out.println(Ma.successmsg);
-}
+	}	
+	
+	@And("^create a job from my projects$")
+	public void method97() throws InterruptedException
+		
+	{
+		Mp.MyProject();
+		
+		Select region = new Select(Mp.paction);
+		region.selectByVisibleText("Start Job"); Thread.sleep(4000);
+						
+		Ml.continue1();Thread.sleep(8000);
+		driver.switchTo().frame("iframe");
+		Thread.sleep(6000);
+		Ml.continue2();Thread.sleep(9000);
+		op.upload();Thread.sleep(6000);
+		driver.switchTo().frame("iframe");
+		op.checkbox1();Thread.sleep(6000);
+		op.save();
+		driver.switchTo().defaultContent();Thread.sleep(7000);
+		Pd.edit();Thread.sleep(5000);
+		driver.switchTo().frame("iframe");
+		Pd.mailinglist();
+		Pd.saveandclose();
+		Thread.sleep(4000);
+		driver.switchTo().defaultContent();Thread.sleep(10000);
+		Ml.saveexit();	
+		
+	}
+	
+	@And("^create a job from products$")
+	public void method99() throws InterruptedException
+	
+	{
+	op.startjob1();
+	Thread.sleep(5000);
+	op.Startjob();
+	op.upload();
+	Thread.sleep(7000);
+	driver.switchTo().frame("iframe");
+	op.checkbox1();
+	wait.until(ExpectedConditions.visibilityOf(op.save));
+	op.save();
+	Thread.sleep(5000);
+	driver.switchTo().defaultContent();
+	Thread.sleep(7000);
+	wait.until(ExpectedConditions.visibilityOf(op.continue1));
+	op.continue1();
+	
+	}
+		
 }
 
 	

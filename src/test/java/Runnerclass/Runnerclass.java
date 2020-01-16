@@ -11,9 +11,8 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = 
-{"src\\test\\resources\\Property\\Customer.feature",
-	 },glue="stepDefinition",tags= {"@smoketest"},monochrome = true,
-plugin={"com.cucumber.listener.ExtentCucumberFormatter:target/html/ExtentReport.html"})
+{"src\\test\\resources\\Property\\Myimagesa.feature"},glue="stepDefinition",tags= {"@smoketest"},monochrome = true,
+	 plugin={"com.cucumber.listener.ExtentCucumberFormatter:target/html/ExtentReport.html"})
 
 public class Runnerclass
 	{
@@ -27,12 +26,13 @@ public class Runnerclass
 	Reporter.setSystemInfo("Operating System Type", System.getProperty("os.name").toString());
 	Reporter.setSystemInfo("Environment", "Testing");
 	Reporter.setTestRunnerOutput("Test Execution Cucumber Report");
-
 	}
-	} 
+}
 
 
 /* tags= {"@smoketest"}
+ * plugin={"com.cucumber.listener.ExtentCucumberFormatter:target/html/ExtentReport.html"})
+
 "src\\test\\resources\\Property\\MyDocuments.feature",
 "src\\test\\resources\\Property\\MyImages.feature",
 "src\\test\\resources\\Property\\MyMailingLists.feature",

@@ -54,6 +54,16 @@ public WebDriver driver;
 	@FindBy(xpath="(//span[contains(text(),'Ok')]/parent::*)[3]")
 	public WebElement accept;
 
+	// start a job from my projects
+	@FindBy(xpath="(//*[@id='projectaction'])[1]")
+	public WebElement paction;
+	//Start Job
+	@FindBy(xpath="//*[@id='continue1']")
+	public WebElement continue1;
+	
+	
+	
+	
 
 	//operations
 	

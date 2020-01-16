@@ -1,10 +1,9 @@
-	
 @shipped
 Feature: Verifing Order Functionality with shipped products
       
- @Test25
-Scenario: Order place with Postcard 3.5 x 5 - Shipped product
-    Given open application with "chrome"
+    @Test25
+    Scenario: Order place with Postcard 3.5 x 5 - Shipped product
+    Given open application with "chrome" 
     Then enter username and password "testac41" and "Test1234" 
     Then select print and ship
   	Then select postcard355
@@ -12,8 +11,8 @@ Scenario: Order place with Postcard 3.5 x 5 - Shipped product
   	And enter initials for shiped product "Rj"
   	Then close browser
   	
-@smoketest @Test26
-Scenario: Order place with Postcard 4.25 x 6 - Shipped product
+    @smoketest @Test26
+    Scenario: Order place with Postcard 4.25 x 6 - Shipped product
     Given open application with "chrome"
     Then enter username and password "testac41" and "Test1234" 
     Then select print and ship
@@ -22,18 +21,18 @@ Scenario: Order place with Postcard 4.25 x 6 - Shipped product
   	And enter initials for shiped product "Rj"
   	Then close browser
   	
- @Test27
-Scenario: Order place with Postcard 4 x 9 - Shipped product
+    @Test27
+    Scenario: Order place with Postcard 4 x 9 - Shipped product
     Given open application with "chrome" 
     Then enter username and password "testac41" and "Test1234" 
-	  Then select print and ship
+	Then select print and ship
     Then select postcard49
     Then shipped product placing orders
   	And enter initials for shiped product "Rj"
   	Then close browser
   	
- @Test28
-Scenario: Order place with Postcard 5 x 8 - Shipped product
+    @Test28
+    Scenario: Order place with Postcard 5 x 8 - Shipped product
     Given open application with "chrome" 
     Then enter username and password "testac41" and "Test1234" 
     Then select print and ship
@@ -41,9 +40,9 @@ Scenario: Order place with Postcard 5 x 8 - Shipped product
     Then shipped product placing orders
    	And enter initials for shiped product "Rj"
   	Then close browser
-
-@Test29
-Scenario: Order place with Postcard 6 x 11 - Shipped product
+ 
+    @Test29
+    Scenario: Order place with Postcard 6 x 11 - Shipped product
     Given open application with "chrome" " "
     Then enter username and password "testac41" and "Test1234" 
     Then select print and ship
@@ -52,8 +51,8 @@ Scenario: Order place with Postcard 6 x 11 - Shipped product
   	And enter initials for shiped product "Rj"
   	Then close browser
  
-@Test30
-Scenario: Order place with Postcard 6.5 x 9 - Shipped product
+    @Test30
+    Scenario: Order place with Postcard 6.5 x 9 - Shipped product
     Given open application with "chrome" 
     Then enter username and password "testac41" and "Test1234" 
     Then select print and ship
@@ -62,8 +61,8 @@ Scenario: Order place with Postcard 6.5 x 9 - Shipped product
   	And enter initials for shiped product "Rj"
   	Then close browser
   	
- @Test31
-Scenario: Order place with Rack Card 4 x 9 - Shipped product
+    @Test31
+    Scenario: Order place with Rack Card 4 x 9 - Shipped product
     Given open application with "chrome" 
     Then enter username and password "testac41" and "Test1234" 
     Then select print and ship
@@ -72,8 +71,8 @@ Scenario: Order place with Rack Card 4 x 9 - Shipped product
   	And enter initials for shiped product "Rj"
   	Then close browser
   	
- @Test32
-Scenario: Order place with Brochure 11 x 8.5 - Shipped product
+    @Test32
+    Scenario: Order place with Brochure 11 x 8.5 - Shipped product
     Given open application with "chrome" 
     Then enter username and password "testac41" and "Test1234" 
     Then select print and ship
@@ -82,8 +81,8 @@ Scenario: Order place with Brochure 11 x 8.5 - Shipped product
   	And enter initials for shiped product "Rj"
   	Then close browser
   	
- @Test33
-Scenario: Order place with Flyer 8.5 x 11 - Shipped product
+    @Test33
+    Scenario: Order place with Flyer 8.5 x 11 - Shipped product
     Given open application with "chrome"
     Then enter username and password "testac41" and "Test1234" 
     Then select print and ship
@@ -91,10 +90,9 @@ Scenario: Order place with Flyer 8.5 x 11 - Shipped product
     Then shipped product placing orders
   	And enter initials for shiped product "Rj"
   	Then close browser
-  	
-  	
- @Test34
-Scenario: Order place with Cardstock 12 x 4.5 - Shipped product
+  	  	
+    @Test34
+    Scenario: Order place with Cardstock 12 x 4.5 - Shipped product
     Given open application with "chrome" 
     Then enter username and password "testac41" and "Test1234" 
     Then select print and ship
@@ -102,10 +100,6 @@ Scenario: Order place with Cardstock 12 x 4.5 - Shipped product
     Then shipped product placing orders
   	And enter initials for shiped product "Rj" 
   	Then close browser
-  	
-  	
-  	
-  	
   	
   	
   	
